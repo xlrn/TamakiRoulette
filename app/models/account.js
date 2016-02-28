@@ -5,18 +5,18 @@ var passportLocalMongoose = require('passport-local-mongoose');
 var Account = new Schema({
     username: String,
     password: String,
-    roulettes: Roulette[]
+    roulettes: Array
 });
 Account.plugin(passportLocalMongoose);
 
 // methods ======================
 // generating a hash
-account.methods.generateHash = function(password) {
+Account.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
 // checking if password is valid
-account.methods.validPassword = function(password) {
+Account.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
 
