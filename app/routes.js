@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = function(app, passport) {
 
 	// server routes ===========================================================
 	// handle things like api calls
@@ -35,13 +35,22 @@ module.exports = function(app) {
       "choice5": req.body.choice5
     });
     newChoice.save(function (err, req) {
-        if (err) {
-            res.send("There was a problem adding the information to the database.");
-        }
-        else {
-            res.redirect('/');
-          }
-        });
+      if (err) {
+        res.send("There was a problem adding the information to the database.");
+      }
+      else {
+        res.redirect('/');
+      }
+    });
   })
 
-};
+  // SIGNUP =================================
+
+      // process the signup form
+      app.post('/index', passport.authenticate('local-signup', {
+          successRedirect : '/', // redirect to the secure profile section
+          failureRedirect : '/', // redirect back to the signup page if there is an error
+          failureFlash : true // allow flash messages
+        }));
+
+      };
