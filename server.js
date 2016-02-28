@@ -15,7 +15,7 @@ var session      = require('express-session');
 var mongoose = require('mongoose');
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = mongoose.connect('mongodb://xlrn:Y0urface!@ds064188.mlab.com:64188/teamtamaki');
+var db = mongoose.connect('mongodb://xlrn:qweasdzxc@ds064188.mlab.com:64188/teamtamaki');
 
 // configuration ===========================================
 
