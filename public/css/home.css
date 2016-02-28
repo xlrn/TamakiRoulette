@@ -51,11 +51,9 @@
 #home #centre-content form#choices button#save {
     /** button shape**/
     height: 70px;
-    width: 100px;
-    font-size: 16px;
+    width: 90px;
     font-family: 'Raleway', sans-serif;
     padding-top:10px;
-    border-radius: 0;
     margin: 20px 20px;
     background: #37474f;
     transition: all 0.3s ease 0s;
@@ -69,11 +67,8 @@
 }
 
 #home #centre-content form#choices button#save .glyphicon {
-    font-size: 40px;
-}
-
-#home #sidebar {
-    background-color: #E6E6E6;
+   position:center;
+    font-size: 30px;
 }
 
 #home #centre-content form#choices button#save:hover {
@@ -84,4 +79,32 @@
 #home #sidebar #view-more-roulettes {
     text-align: center;
     font-size: 16px;
+}
+
+#home #sidebar {
+    background-color: #E6E6E6;
+}
+
+#randomResultModal .modal-content {
+    background-color: #E6E6E6;
+}
+
+#randomResultModal #result {
+    font-size: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+#randomResultModal button.btn {
+    background-color: #7986cb;
+    color:white;
+    transition: all 0.3s ease 0s;
+    height:40px;
+    width: 200px;
+}
+
+#randomResultModal button.btn:hover {
+    background-color: white;
+    color: #7986cb;
+    border-color: #7986cb;
 }
