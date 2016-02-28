@@ -1,3 +1,3 @@
 module.exports = {
-	url : 'mongodb://<user>:<pass>@mongo.onmodulus.net:27017/uw45mypu'
+	url : 'mongodb://<xlrn>:<qweasdzxc>@ds064188.mlab.com:64188/teamtamaki'
 }
