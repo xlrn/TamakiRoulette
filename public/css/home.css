@@ -41,9 +41,23 @@
 }
 
 #home #centre-content form#choices button#save {
-    height: 80px;
+
+    /** button shape**/
+    height: 50px;
+    width: 150px;
     font-size: 16px;
     border-radius: 0;
+    margin: 20px 20px;
+    background: white;
+
+    /** button font styling **/
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    border-color: #7986cb;
+    color:#7986cb;
+
+
 }
 
 #home #centre-content form#choices button#save .glyphicon {
