@@ -1,6 +1,7 @@
 function chooseOne() {
   var One = Math.floor(Math.random() * 5) + 1;
   return One;
+  console.log("random number is: "+ One);
 }
 
 function setChoice() {
@@ -8,4 +9,6 @@ function setChoice() {
   var Choice = document.getElementById("choice" + One).value;
   var Change = document.getElementById("randomized").value;
   Change = Choice;
+  console.log("random value is: "+ Choice);
+  document.getElementById("randomized").value = Choice;
 }
