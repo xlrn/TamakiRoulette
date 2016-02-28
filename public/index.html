@@ -1,78 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-	<!--- Site name and favicons and such -->
-	<title>Tamaki Roulette</title>
-	<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
-	<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
-	<meta name="application-name" content="Tamaki Roulette"/>
+    <!--- Site name and favicons and such -->
+    <title>Tamaki Roulette</title>
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16"/>
+    <meta name="application-name" content="Tamaki Roulette"/>
 
-	<!-- stylesheets (.SCSS sheets imported in style.css) -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/layout.css">
+    <!-- stylesheets (.SCSS sheets imported in style.css) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/modal.css">
 
 
-	<!-- style animation -->
-	<link rel="stylesheet" href="css/animate.css">
+    <!-- style animation -->
+    <link rel="stylesheet" href="css/animate.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:600' rel='stylesheet' type='text/css'>
 
-	<!-- libs -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-cookies.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- libs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-cookies.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/randomizer.js"></script>
 
-	<!-- plugins -->
+    <!-- plugins -->
 
-	<!-- controllers -->
-	<script src="js/app.js"></script>
-	<script src="js/controllers/HomeController.js"></script>
-	<script src="js/controllers/LayoutController.js"></script>
+    <!-- controllers -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/HomeController.js"></script>
+    <script src="js/controllers/LayoutController.js"></script>
 
-	<!-- directives -->
+    <!-- directives -->
 
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
 
 </head>
- <script type="text/javascript" src="js/randomizer.js">console.log("This runs");</script>
+
 <body ng-app="app" ng-controller="App">
 <div class="wrapper">
-	<div ng-controller="LayoutController" id="header">Roulette
+    <div ng-controller="LayoutController" id="header">Roulette
         <button ng-click="openSignupModal()" id="signupButton" type="button" class="btn">
             Signup
         </button>
         <button ng-click="openLoginModal()" id="loginButton" type="button" class="btn">
             Login
         </button>
-       <!-- <button ng-click="logout()" id="logoutButton" type="button" class="btn">
-            Logout
-        </button> -->
+        <!-- <button ng-click="logout()" id="logoutButton" type="button" class="btn">
+             Logout
+         </button> -->
     </div>
 
-	<div class="container-fluid">
-		<div class="ngview" ng-view autoscroll="true"></div>
-	</div>
+    <div class="container-fluid">
+        <div class="ngview" ng-view autoscroll="true"></div>
+    </div>
 
-	<div id="footer">
+    <div id="footer">
         <div id="year">&copy; {{year}}</div>
         <div id="logo"><img style="width:99px;height:70px;" src="img/sitelogo.png"></div>
-	</div>
+    </div>
 </div>
 
-<div ng-controller="LayoutController" class="modal fade" id="signupModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
+<div ng-controller="LayoutController" class="modal fade" id="signupModal" data-backdrop="static" tabindex="-1"
+     role="dialog" aria-labelledby="signupModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -88,15 +94,18 @@
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="Username">Username</label>
-                        <input type="username" class="form-control" id="Username" placeholder="Enter username" name="username">
+                        <input type="username" class="form-control" id="Username" placeholder="Enter username"
+                               name="username">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="Password">Password</label>
-                        <input type="password" class="form-control" id="Password" placeholder="Enter password" name="password">
+                        <input type="password" class="form-control" id="Password" placeholder="Enter password"
+                               name="password">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="Confirm">Confirm Password</label>
-                        <input type="password" class="form-control" id="Confirm" placeholder="Confirm password" name="confirm">
+                        <input type="password" class="form-control" id="Confirm" placeholder="Confirm password"
+                               name="confirm">
                     </fieldset>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-warning btn-lg">Create Account</button>
@@ -108,21 +117,25 @@
 </div>
 
 
-<div ng-controller="LayoutController" class="modal fade" id="loginModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+<div ng-controller="LayoutController" class="modal fade" id="loginModal" data-backdrop="static" tabindex="-1"
+     role="dialog" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Login</h4>
             </div>
             <div class="modal-body">
                 <fieldset class="form-group" action="/index" method="post">
                     <label for="Username">Username</label>
-                    <input type="username" class="form-control" id="Username" placeholder="Enter username" name="username">
+                    <input type="username" class="form-control" id="Username" placeholder="Enter username"
+                           name="username">
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="Password">Password</label>
-                    <input type="password" class="form-control" id="Password" placeholder="Enter password" name="password">
+                    <input type="password" class="form-control" id="Password" placeholder="Enter password"
+                           name="password">
                 </fieldset>
             </div>
             <div class="modal-footer">

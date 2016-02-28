@@ -20,7 +20,9 @@ var app = angular.module('app')
             var choices = [];
             for (var i = 0; i<inputs.length; i++) {
                 var value = $(inputs[i]).val().trim();
-                choices.push(value);
+                if(value.length > 0) {
+                    choices.push(value);
+                }
             }
             return choices;
         }
@@ -44,4 +46,14 @@ var app = angular.module('app')
         $scope.viewMoreSavedRoulettes = function() {
             $('#savedRoulettesModal').modal('show');
         };
+
+        $scope.randomize = function() {
+            var choices = getChoices();
+            if (choices.length < 1) {
+                $scope.randomResult = "No inputs! Please make some choices!";
+            }
+            else {
+                $scope.randomResult = choices[Math.floor(Math.random() * choices.length)];
+            }
+        }
     });
