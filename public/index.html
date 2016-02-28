@@ -12,6 +12,7 @@
 
 	<!-- stylesheets (.SCSS sheets imported in style.css) -->
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/layout.css">
 
 	<!-- style animation -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -44,28 +45,24 @@
 
 <body ng-app="app" ng-controller="App">
 <div class="wrapper">
+	<div id="navbar">
+		<button id="signupButton" type="button" class="btn" data-toggle="modal" data-target="#signupModal">
+			Signup
+		</button>
+		<button id="loginButton" type="button" class="btn" data-toggle="modal" data-target="#loginModal">
+			Login
+		</button>
+	</div>
+
 	<div class="container">
-
-		<div id="navbar">
-			<button id="signupButton" type="button" class="btn" data-toggle="modal" data-target="#signupModal">
-				Signup
-			</button>
-			<button id="loginButton" type="button" class="btn" data-toggle="modal" data-target="#loginModal">
-				Login
-			</button>
-		</div>
-
-
 		<div class="ngview" ng-view autoscroll="true"></div>
+	</div>
 
-		<div class="footer grey">
-			<div>
-				<a href="#/">HOME</a>
-			</div>
-			<div>&copy; {{year}} </div>
+	<div class="footer grey">
+		<div>
+			<a href="#/">HOME</a>
 		</div>
-
-
+		<div>&copy; {{year}} </div>
 	</div>
 </div>
 </body>
