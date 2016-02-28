@@ -47,19 +47,17 @@
 
 <body ng-app="app" ng-controller="App">
 <div class="wrapper">
-	<div id="header">
-		<button id="signupButton" type="button" class="btn" data-toggle="modal" data-target="#signupModal"</button>
-	<div ng-controller="LayoutController" id="navbar">
-		<button ng-click="openSignupModal()" id="signupButton" type="button" class="btn">
-			Signup
-		</button>
-		<button ng-click="openLoginModal()" id="loginButton" type="button" class="btn">
-			Login
-		</button>
-		<button ng-click="logout()" id="logoutButton" type="button" class="btn">
-			Logout
-		</button>
-	</div>
+	<div ng-controller="LayoutController" id="header">
+        <button ng-click="openSignupModal()" id="signupButton" type="button" class="btn">
+            Signup
+        </button>
+        <button ng-click="openLoginModal()" id="loginButton" type="button" class="btn">
+            Login
+        </button>
+        <button ng-click="logout()" id="logoutButton" type="button" class="btn">
+            Logout
+        </button>
+    </div>
 
 	<div class="container-fluid">
 		<div class="ngview" ng-view autoscroll="true"></div>
