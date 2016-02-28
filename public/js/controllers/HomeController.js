@@ -27,6 +27,14 @@ var app = angular.module('app')
             return choices;
         }
 
+        $scope.resetChoices = function() {
+            $('#choices-rows').empty();
+            numChoices = 0;
+            for(var i = 1; i <=3; i++) {
+                $scope.addMoreChoices();
+            }
+        };
+
         $scope.addMoreChoices = function() {
             $('.shift-right').removeClass('shift-right');
             var html = '<div class=\"row shift-right\">';
@@ -35,7 +43,7 @@ var app = angular.module('app')
 
             var choiceId = "#choice" + numChoices;
             $("#addMoreChoices").insertAfter(choiceId);
-        }
+        };
 
         function addInputChoice() {
             numChoices++;
@@ -54,6 +62,43 @@ var app = angular.module('app')
             }
             else {
                 $scope.randomResult = choices[Math.floor(Math.random() * choices.length)];
+            }
+        };
+
+        $scope.generateRandom = function(category) {
+            var choices = [];
+            switch(category) {
+                case "number":
+                    for(var i = 1; i<=100; i++) choices.push(i);
+                    break;
+                case "headsTails":
+                    choices = ["Heads", "Tails"];
+                    break;
+                case "foodCuisines":
+                    choices = ["Mexican", "Italian", "Indian", "Chinese", "Western", "Thai", "Greek", "Korean", "Vietnamese"];
+                    break
+                case "dice":
+                    choices = ["1", "2", "3", "4", "5", "6"];
+                    break;
+                case "rockPaperScissors":
+                    choices = ["Rock", "Paper", "Scissors"];
+                    break;
+                default:
+                    console.error("Error: Invalid category. Cannot randomize");
+            }
+            autoInputChoices(choices);
+            $scope.randomize();
+            $('#randomResultModal').modal('show');
+        };
+
+        function autoInputChoices(choices) {
+            var inputs = $('#home').find('form#choices').find('input[type="text"]');
+            while(inputs.length < choices.length) {
+                $scope.addMoreChoices();
+                inputs = $('#home').find('form#choices').find('input[type="text"]');
+            }
+            for (var i = 0; i<choices.length; i++) {
+                $(inputs[i]).val(choices[i]);
             }
         }
     });

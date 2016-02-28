@@ -26,14 +26,13 @@
     </div>
     <div id="sidebar" class="col-md-3">
         <div id="suggestions">
-            <h2>Suggestions</h2>
+            <h2>Roulette Suggestions</h2>
             <ul class="list-group">
-                <a href="#" class="list-group-item list-group-item-info">Suggestion 1</a>
-                <a href="#" class="list-group-item">Suggestion 2</a>
-                <a href="#" class="list-group-item">Suggestion 3</a>
-                <a href="#" class="list-group-item">Suggestion 4</a>
-                <a href="#" class="list-group-item">Suggestion 5</a>
-
+                <button ng-click="generateRandom('number')" class="list-group-item">Number 1-100</a>
+                <button ng-click="generateRandom('headsTails')" class="list-group-item">Heads or Tails</a>
+                <button ng-click="generateRandom('foodCuisines')" class="list-group-item">Food Cuisines</a>
+                <button ng-click="generateRandom('dice')" class="list-group-item">Dice</a>
+                <button ng-click="generateRandom('rockPaperScissors')" class="list-group-item">Rock, Paper, Scissors</button>
             </ul>
         </div>
         <div id="saved-bar">
@@ -90,7 +89,7 @@
 
 </div>
 
-<div class="modal fade" id="random-result" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="randomResultModal" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
