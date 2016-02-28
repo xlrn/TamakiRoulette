@@ -10,6 +10,8 @@
     height: 45px;
     font-family:Lato;
     font-size: 20px;
+    background-color: #ff9696;
+    border-color: black;
 }
 
 #header button a {
