@@ -10,4 +10,14 @@ module.exports = function(app) {
 		res.sendfile('./public/index.html');
 	});
 
+  app.get('/', function(req, res) {
+    res.render('./views/home');
+  })
+
+  var Roulette = require('./app/controllers/roulette.js');
+
+  app.post('/save', function(req, res) {
+    Roulette.postReg();
+  })
+
 };

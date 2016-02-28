@@ -10,7 +10,7 @@ modules.exports = function (app) {
     this.choice5 = choice5;
   };
 
-  postReg = function (req, res, next) {
+  postReg = function () {
     // Set our internal DB variable
     var db = req.db;
 
