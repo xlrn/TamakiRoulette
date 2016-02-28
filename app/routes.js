@@ -14,7 +14,21 @@ module.exports = function(app, passport) {
 	});
 
   app.get('/', function(req, res) {
-    res.render('./views/home');
+    var sug = new [roulette];
+    roulette.find({ username: 'placeholder' }, function (err, projects) {
+        if (err) {
+            next(err);
+        }
+        else if (!roulette) {
+            sug = [];
+        }
+        else {
+            sug = roulette;
+        }
+    });
+    res.render('./views/home', {
+      suggestions: roulette
+    });
   })
 
   // submit choices to database
