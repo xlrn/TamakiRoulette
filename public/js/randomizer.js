@@ -26,5 +26,6 @@ function setChoice() {
   }
   else{
   document.getElementById("randomized").value = Choice;
+  console.log("randomized= "+ document.getElementById("randomized").value );
   }
 }
