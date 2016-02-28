@@ -72,10 +72,6 @@
     font-size: 40px;
 }
 
-#home #sidebar {
-    background-color: #E6E6E6;
-}
-
 #home #centre-content form#choices button#save:hover {
     background: #7986cb;
     color:white;
@@ -84,4 +80,20 @@
 #home #sidebar #view-more-roulettes {
     text-align: center;
     font-size: 16px;
+}
+
+#home #sidebar {
+    background-color: #E6E6E6;
+}
+
+#randomResultModal button.btn {
+    background-color: #7986cb;
+    color:white;
+    transition: all 0.3s ease 0s;
+}
+
+#randomResultModal button.btn:hover {
+    background-color: white;
+    color: #7986cb;
+    border-color: #7986cb;
 }
