@@ -53,6 +53,9 @@
 		<button ng-click="openLoginModal()" id="loginButton" type="button" class="btn">
 			Login
 		</button>
+		<button ng-click="logout()" id="logoutButton" type="button" class="btn">
+			Logout
+		</button>
 	</div>
 
 	<div class="container">
@@ -66,5 +69,65 @@
 		<div>&copy; {{year}} </div>
 	</div>
 </div>
+
+<div class="modal fade" id="signupModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button ng-type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                <h4 class="modal-title">Registration</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-group">
+                    <fieldset class="form-group">
+                        <label for="Email">Email address</label>
+                        <input type="email" class="form-control" id="Email" placeholder="Enter email">
+                        <small class="text-muted">We'll never share your email with anyone else!</small>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="Email">Username</label>
+                        <input type="email" class="form-control" id="Username" placeholder="Enter username">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="Email">Password</label>
+                        <input type="email" class="form-control" id="Password" placeholder="Enter password">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="Email">Confirm Password</label>
+                        <input type="email" class="form-control" id="Confirm" placeholder="Confirm password">
+                    </fieldset>
+                    <div class="modal-footer">
+                        <button ng-click="createAccount()" type="button" class="btn btn-primary">Create Account</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="loginModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Login</h4>
+            </div>
+            <div class="modal-body">
+                <fieldset class="form-group">
+                    <label for="Email">Username</label>
+                    <input type="email" class="form-control" id="Username" placeholder="Enter username">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="Email">Password</label>
+                    <input type="email" class="form-control" id="Password" placeholder="Enter password">
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="login()" type="button" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

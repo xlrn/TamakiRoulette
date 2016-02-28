@@ -11,8 +11,6 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         });
 }])
     .controller('App', function($scope) {
-        $(document).ready(function(){ $("#signupButton").load("views/_signupModal.html"); });
-        $(document).ready(function(){ $("#loginButton").load("views/_loginModal.html"); });
 
         $scope.year = new Date().getFullYear();
 

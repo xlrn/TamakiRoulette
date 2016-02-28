@@ -16,3 +16,7 @@ a:hover {
 .hidden {
     visibility: hidden;
 }
+
+.modal .modal-footer {
+    text-align: center;
+}
