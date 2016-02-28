@@ -17,11 +17,11 @@
 }
 
 #home #centre-content form#choices input[type="text"] {
-    width: 500px;
+    width: 350px;
     height: 80px;
     display: inline-block;
     margin: 10px;
-    font-size: 20px;
+    font-size: 30px;
     border-color: #37474f;
 }
 
@@ -66,5 +66,10 @@
 }
 
 #home #sidebar {
-    background-color: aliceblue;
+    background-color: #E6E6E6;
+}
+
+#home #sidebar a {
+    width: 50px;
+    width: 250px;
 }
