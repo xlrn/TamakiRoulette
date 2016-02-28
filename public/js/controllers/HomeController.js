@@ -26,7 +26,8 @@ var app = angular.module('app')
         }
 
         $scope.addMoreChoices = function() {
-            var html = '<div class="row">';
+            $('.shift-right').removeClass('shift-right');
+            var html = '<div class=\"row shift-right\">';
             html += addInputChoice() + addInputChoice() + '</div>';
             $('#choices-rows').append(html);
 

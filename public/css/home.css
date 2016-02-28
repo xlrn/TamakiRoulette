@@ -7,8 +7,8 @@
 }
 
 #home #centre-content #addMoreChoices {
-    font-size: 18px;
-    color: grey;
+    font-size: 25px;
+    color: #666666;
     margin-left: 5px;
 }
 
@@ -17,12 +17,16 @@
 }
 
 #home #centre-content form#choices input[type="text"] {
-    width: 500px;
+    width: 400px;
     height: 80px;
     display: inline-block;
-    margin: 10px;
-    font-size: 20px;
+    margin: 12px;
+    font-size: 24px;
     border-color: #37474f;
+}
+
+#home #centre-content form#choices .row.shift-right {
+    margin-left: 15px;
 }
 
 #home #centre-content #randomize {
@@ -42,11 +46,11 @@
 }
 
 #home #centre-content form#choices button#save {
-
     /** button shape**/
-    height: 50px;
-    width: 150px;
+    height: 70px;
+    width: 100px;
     font-size: 16px;
+    padding-top:10px;
     border-radius: 0;
     margin: 20px 20px;
     background: white;
@@ -57,12 +61,10 @@
     text-align: center;
     border-color: #37474f;
     color:#37474f;
-
-
 }
 
 #home #centre-content form#choices button#save .glyphicon {
-    font-size: 30px;
+    font-size: 40px;
 }
 
 #home #sidebar {
