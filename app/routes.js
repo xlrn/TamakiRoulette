@@ -14,9 +14,9 @@ module.exports = function(app) {
     res.render('./views/home');
   })
 
-  var Roulette = require('./app/controllers/roulette.js');
+  var Roulette = require('../app/controllers/roulette.js');
 
-  app.post('/save', function(req, res) {
+  app.post('/', function(req, res) {
     Roulette.postReg();
   })
 

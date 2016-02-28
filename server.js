@@ -6,12 +6,16 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 
 var passport 	 = require('passport');
-var flash 	     = require('connect-flash');
+// var flash 	     = require('connect-flash');
 
 var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
+var mongoose = require('mongoose');
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = mongoose.connect('mongodb://xlrn:qweasdzxc@ds064188.mlab.com:64188/teamtamaki');
 
 // configuration ===========================================
 
@@ -28,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-f
 
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
-
+/*
 // passport set up =========================================
 
 // sets up app for passport and cookie use
@@ -47,7 +51,8 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ==================================================
 require('./app/routes.js')(app, passport); // pass our application into our routes
-
+*/
+require('./app/routes.js')(app);
 // start app ===============================================
 app.listen(port);
 console.log('Magic happens on port ' + port); 			// shoutout to the user
