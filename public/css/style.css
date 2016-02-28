@@ -1,1 +1,14 @@
-body { padding-top:30px; }
+html, body {
+    height: 100%;
+    font-family: Segoe,Segoe UI,Calibri,Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
