@@ -1,20 +1,26 @@
 modules.exports = function (app) {
-  renderReg = function(req, res) {
 
     var Account = (function () {
-      function Account(name, password) {
+      function Account(name, password, confirm) {
         this.userName = name;
         this.userPassword = password;
+        this.confirm = confirm;
         }
-        User.prototype.getName = function () {
+        Account.prototype.getName = function () {
           return this.userName;
         };
-        User.prototype.getPassword = function () {
+        Account.prototype.getPassword = function () {
           return this.userPassword;
         };
-      return User;
+        /*
+        Account.prototype.getConfirm = function () {
+            return this.userConfirm;
+        };
+        */
+      return Account;
     })();
 
+  renderReg = function(req, res) {
     res.render('register', {title: 'Join, you tool!', user: req.user, info: user.info})
   });
 
@@ -28,12 +34,11 @@ modules.exports = function (app) {
     // Make new account with passport
     account.register(new account({
         username: newAccount.getName(),
-        password: newAccount.getPassword(),
+        password: newAccount.getPassword()
     }), req.body.userpassword, function (err, account) {
         if (err) {
             return res.send("Oops! This username already exists! go back and try again!");
         }
-        res.redirect('/');
     });
   }
 
