@@ -46,3 +46,7 @@
     color: #eeeeee;
     text-decoration: none;
 }
+.sidebar{ 
+    text-align: right;
+    padding-right: 0;
+}
