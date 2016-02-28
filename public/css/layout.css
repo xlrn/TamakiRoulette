@@ -34,6 +34,10 @@
 
 }
 
+.container-fluid {
+    padding: 0;
+}
+
 #footer {
     background: #000000;
     width: 100%;

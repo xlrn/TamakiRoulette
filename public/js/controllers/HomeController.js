@@ -1,5 +1,7 @@
 var app = angular.module('app')
     .controller('HomeController', function($scope) {
+        var numChoices = 6;
+
         $scope.saveChoices = function() {
             $('#saveChoicesModal').modal('show');
         };
@@ -21,5 +23,20 @@ var app = angular.module('app')
                 choices.push(value);
             }
             return choices;
+        }
+
+        $scope.addMoreChoices = function() {
+            var html = '<div class="row">';
+            html += addInputChoice() + addInputChoice() + '</div>';
+            $('#choices-rows').append(html);
+
+            var choiceId = "#choice" + numChoices;
+            $("#addMoreChoices").insertAfter(choiceId);
+        }
+
+        function addInputChoice() {
+            numChoices++;
+            var html = '<input type=\"text\" class=\"form-control\" name=\"choice' + numChoices +'\" id=\"choice' + numChoices + '\" placeholder=\"Choice ' + numChoices + '\"/>';
+            return html;
         }
     });
