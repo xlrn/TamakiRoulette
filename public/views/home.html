@@ -10,14 +10,14 @@
                     <input type="text" class="form-control" name="choice2" id="choice2" placeholder="Choice 3"/>
                     <input type="text" class="form-control" name="choice3" id="choice3" placeholder="Choice 4"/>
                 </div>
-                <div class="row">
+                <div class="row shift-right">
                     <input type="text" class="form-control" name="choice4" id="choice4" placeholder="Choice 5"/>
                     <input type="text" class="form-control" name="choice5" id="choice5" placeholder="Choice 6"/>
                     <div id="addMoreChoices" ng-click="addMoreChoices()" class="glyphicon glyphicon-plus"></div>
                 </div>
             </div>
             <input class="btn" type="button" onclick="setChoice()" id="randomize" value="Randomize!">
-            <button type="button" class="btn btn-default" id="save" ng-click="saveChoices()">
+            <button type="button" class="btn btn-default" id="save" ng-click="saveRoulette()">
                 <div class="glyphicon glyphicon-floppy-disk"></div>
                <!--<div> Save Choices</div>  -->
             </button>
@@ -35,6 +35,7 @@
                 <a href="#" class="list-group-item">Suggestion 2</a>
                 <a href="#" class="list-group-item">Suggestion 3</a>
                 <a href="#" class="list-group-item">Suggestion 4</a>
+                <a href="#" class="list-group-item">Suggestion 5</a>
 
             </ul>
         </div>
@@ -45,18 +46,19 @@
                 <a href="#" class="list-group-item">Suggestion 2</a>
                 <a href="#" class="list-group-item">Suggestion 3</a>
                 <a href="#" class="list-group-item">Suggestion 4</a>
+                <button id="view-more-roulettes" class="list-group-item" ng-click="viewMoreSavedRoulettes()">View More</button>
             </ul>
         </div>
     </div>
 
-    <div class="modal fade" id="saveChoicesModal" data-backdrop="static" tabindex="-1" role="dialog"
-         aria-labelledby="saveChoicesModal" aria-hidden="true">
+    <div class="modal fade" id="saveRouletteModal" data-backdrop="static" tabindex="-1" role="dialog"
+         aria-labelledby="saveRouletteModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Save Choices As</h4>
+                    <h4 class="modal-title" id="myModalLabel">Save Roulette As</h4>
                 </div>
                 <div class="modal-body">
                     <fieldset class="form-group">
@@ -66,6 +68,25 @@
                 </div>
                 <div class="modal-footer">
                     <button ng-click="saveModalSubmit()" type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="savedRoulettesModal" data-backdrop="static" tabindex="-1" role="dialog"
+         aria-labelledby="savedRoulettesModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Load saved roulettes</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- <a ng-repeat= "roulette in roulettes" href="#" class="list-group-item">{{roulette.name}}</a> -->
+                    <a href="#" class="list-group-item">Suggestion 2</a>
+                    <a href="#" class="list-group-item">Suggestion 3</a>
+                    <a href="#" class="list-group-item">Suggestion 4</a>
                 </div>
             </div>
         </div>

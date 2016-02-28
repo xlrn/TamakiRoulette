@@ -2,16 +2,16 @@ var app = angular.module('app')
     .controller('HomeController', function($scope) {
         var numChoices = 6;
 
-        $scope.saveChoices = function() {
-            $('#saveChoicesModal').modal('show');
+        $scope.saveRoulette = function() {
+            $('#saveRouletteModal').modal('show');
         };
 
-        $('#saveChoicesModal').on('hidden.bs.modal', function() {
+        $('#saveRouletteModal').on('hidden.bs.modal', function() {
             $(this).find('form')[0].reset();
         });
 
         $scope.saveModalSubmit = function() {
-            var saveName = $('#saveChoicesModal').find('input#name').val().trim();
+            var saveName = $('#saveRouletteModal').find('input#name').val().trim();
             var choices = getChoices();
         }
 
@@ -26,7 +26,8 @@ var app = angular.module('app')
         }
 
         $scope.addMoreChoices = function() {
-            var html = '<div class="row">';
+            $('.shift-right').removeClass('shift-right');
+            var html = '<div class=\"row shift-right\">';
             html += addInputChoice() + addInputChoice() + '</div>';
             $('#choices-rows').append(html);
 
@@ -39,4 +40,8 @@ var app = angular.module('app')
             var html = '<input type=\"text\" class=\"form-control\" name=\"choice' + numChoices +'\" id=\"choice' + numChoices + '\" placeholder=\"Choice ' + numChoices + '\"/>';
             return html;
         }
+
+        $scope.viewMoreSavedRoulettes = function() {
+            $('#savedRoulettesModal').modal('show');
+        };
     });
