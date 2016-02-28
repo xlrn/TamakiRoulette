@@ -1,5 +1,5 @@
 #header {
-    background: #9cb5d0;
+    background: #7986cb;
     height: 150px;
     font-family: 'Raleway', sans-serif;
     padding-left: 50px;
@@ -16,7 +16,7 @@
     margin: 20px 20px;
     height: 100px;
     width: 200px;
-    background-color: #9cb5d0;
+    background-color: #7986cb;
     transition: all 0.3s ease 0s;
 
     /** button font styling **/
