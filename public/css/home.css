@@ -6,6 +6,16 @@
     margin: 20px 0;
 }
 
+#home #centre-content #addMoreChoices {
+    font-size: 18px;
+    color: grey;
+    margin-left: 5px;
+}
+
+#home #centre-content #addMoreChoices:hover {
+    color: black;
+}
+
 #home #centre-content form#choices input[type="text"] {
     width: 300px;
     height: 50px;
@@ -23,6 +33,10 @@
     border-radius: 500px;
     width: 250px;
     height: 100px;
+}
+
+#home #centre-content form#choices input[type="submit"]:hover {
+    background-color: red;
 }
 
 #home #centre-content form#choices button#save {
