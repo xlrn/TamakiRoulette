@@ -18,11 +18,12 @@
 
 #home #centre-content form#choices input[type="text"] {
     width: 350px;
-    height: 80px;
+    height: 70px;
     display: inline-block;
     margin: 12px;
     font-size: 30px;
     border-color: #37474f;
+    font-family: 'Raleway', sans-serif;
 }
 
 #home #centre-content form#choices .row.shift-right {
@@ -35,9 +36,11 @@
     background-color: #37474f;
     font-weight: bold;
     font-size: 30px;
+    font-family: 'Raleway', sans-serif;
     border-radius: 500px;
     width: 250px;
     height: 80px;
+    border-color:white;
 }
 
 #home #centre-content #randomize:hover {
@@ -50,17 +53,19 @@
     height: 70px;
     width: 100px;
     font-size: 16px;
+    font-family: 'Raleway', sans-serif;
     padding-top:10px;
     border-radius: 0;
     margin: 20px 20px;
-    background: white;
+    background: #37474f;
+    transition: all 0.3s ease 0s;
 
     /** button font styling **/
     font-size: 20px;
     font-family: 'Raleway', sans-serif;
     text-align: center;
-    border-color: #37474f;
-    color:#37474f;
+    border-color: white;
+    color: white;
 }
 
 #home #centre-content form#choices button#save .glyphicon {
@@ -68,7 +73,12 @@
 }
 
 #home #sidebar {
-    background-color: aliceblue;
+    background-color: #E6E6E6;
+}
+
+#home #centre-content form#choices button#save:hover {
+    background: #7986cb;
+    color:white;
 }
 
 #home #sidebar #view-more-roulettes {
