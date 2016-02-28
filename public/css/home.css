@@ -24,7 +24,7 @@
     font-size: 20px;
 }
 
-#home #centre-content form#choices input[type="submit"] {
+#home #centre-content #randomize {
     margin: 25px;
     color: white;
     background-color: green;
@@ -32,11 +32,12 @@
     font-size: 30px;
     border-radius: 500px;
     width: 250px;
-    height: 100px;
+    height: 80px;
 }
 
-#home #centre-content form#choices input[type="submit"]:hover {
-    background-color: red;
+#home #centre-content #randomize:hover {
+    background-position: 0 -80px;
+    background-color: darkgreen;
 }
 
 #home #centre-content form#choices button#save {
