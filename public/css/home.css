@@ -30,6 +30,7 @@
     margin-left: 20px;
 }
 
+/** Randomize Button **/
 #home #centre-content #randomize {
     margin: 25px;
     color: white;
@@ -60,6 +61,8 @@
     color:white;
 }
 
+/** Save Button **/
+
 #home #centre-content form#choices button#save .glyphicon {
    position:center;
     font-size: 30px;
@@ -81,6 +84,8 @@
     color:white;
 }
 
+/** Reset Button **/
+
 #home #centre-content button#reset:hover {
     background-position: 0 -80px;
     background-color: #7986cb;
@@ -92,21 +97,34 @@
     font-size:30px;
 }
 
+/** View More **/
+
 #home #sidebar #view-more-roulettes {
     text-align: center;
     font-size: 16px;
 }
 
+/** Sidebar **/
+
 #home #sidebar {
     background-color: #E6E6E6;
 }
+
+/** Suggestions Sidebar **/
+
+#home #sidebar #suggestions button:hover {
+    background-color:#7986cb;
+    color:white;
+}
+
+/** Results Modal **/
 
 #randomResultModal .modal-content {
     background-color: #E6E6E6;
 }
 
 #randomResultModal #result {
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Raleway', sans-serif;
     text-align: center;
 }
