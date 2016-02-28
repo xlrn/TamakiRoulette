@@ -1,5 +1,4 @@
 <div id="home">
-	<h1>Hello World</h1>
 
 	<form id="choices" action='/save' method='post'>
 		<input type="text" name="choice0" id="choice0" placeholder="Choice 1"/>
@@ -10,14 +9,13 @@
 		<input type="text" name="choice5" id="choice5" placeholder="Choice 6"/>
 		<input type="submit" value="Submit">
 	</form>
-	<button id="save" ng-click="saveChoices()">
-		Save
-	</button>
 	<h2> I HAVE CHOSEN </h2>
 	<script type="text/javascript" src="../js/randomizer.js"></script>
 	<input type="text" id="randomized" placeholder="what choice?">
 	<input type="button" onclick="setChoice()" id="randomize" value="Click Me!">
-
+	<button id="save" ng-click="saveChoices()">
+		Save
+	</button>
 <div class="col-sm-10"></div>
 <div class="sidebar">
 	<div class="col-sm-2">

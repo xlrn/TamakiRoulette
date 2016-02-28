@@ -47,16 +47,16 @@
 
 <body ng-app="app" ng-controller="App">
 <div class="wrapper">
-	<div ng-controller="LayoutController" id="header">
+	<div ng-controller="LayoutController" id="header">ROULETTE
         <button ng-click="openSignupModal()" id="signupButton" type="button" class="btn">
             Signup
         </button>
         <button ng-click="openLoginModal()" id="loginButton" type="button" class="btn">
             Login
         </button>
-        <button ng-click="logout()" id="logoutButton" type="button" class="btn">
+       <!-- <button ng-click="logout()" id="logoutButton" type="button" class="btn">
             Logout
-        </button>
+        </button> -->
     </div>
 
 	<div class="container-fluid">
@@ -79,32 +79,33 @@
                 <h4 class="modal-title">Registration</h4>
             </div>
             <div class="modal-body">
-                <form class="form-group">
+                <form class="form-group" action="/index" method="post">
                     <fieldset class="form-group">
                         <label for="Email">Email address</label>
-                        <input type="email" class="form-control" id="Email" placeholder="Enter email">
+                        <input type="email" class="form-control" id="Email" placeholder="Enter email" name="email">
                         <small class="text-muted">We'll never share your email with anyone else!</small>
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="Email">Username</label>
-                        <input type="email" class="form-control" id="Username" placeholder="Enter username">
+                        <label for="Username">Username</label>
+                        <input type="username" class="form-control" id="Username" placeholder="Enter username" name="username">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="Email">Password</label>
-                        <input type="email" class="form-control" id="Password" placeholder="Enter password">
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control" id="Password" placeholder="Enter password" name="password">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="Email">Confirm Password</label>
-                        <input type="email" class="form-control" id="Confirm" placeholder="Confirm password">
+                        <label for="Confirm">Confirm Password</label>
+                        <input type="password" class="form-control" id="Confirm" placeholder="Confirm password" name="confirm">
                     </fieldset>
                     <div class="modal-footer">
-                        <button ng-click="createAccount()" type="button" class="btn btn-primary">Create Account</button>
+                        <button type="submit" class="btn btn-warning btn-lg">Create Account</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
 <div ng-controller="LayoutController" class="modal fade" id="loginModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -115,12 +116,12 @@
             </div>
             <div class="modal-body">
                 <fieldset class="form-group">
-                    <label for="Email">Username</label>
-                    <input type="email" class="form-control" id="Username" placeholder="Enter username">
+                    <label for="Username">Username</label>
+                    <input type="username" class="form-control" id="Username" placeholder="Enter username" name="username">
                 </fieldset>
                 <fieldset class="form-group">
-                    <label for="Email">Password</label>
-                    <input type="email" class="form-control" id="Password" placeholder="Enter password">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" id="Password" placeholder="Enter password" name="password">
                 </fieldset>
             </div>
             <div class="modal-footer">

@@ -1,14 +1,18 @@
 #header {
     background: #ff9696;
     height: 150px;
+    font-family:Lato;
+    text-align:center;
+    font-size: 75px;
 }
 
 #header button {
     text-align: center;
     float:right;
     z-index: 1000;
-    height: 45px;
-    font-family:Lato;
+    margin: 10px 10px;
+    height: 100px;
+    width: 100px;
     font-size: 20px;
     background-color: #ff9696;
     border-color: black;
