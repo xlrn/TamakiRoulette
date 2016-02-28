@@ -13,6 +13,7 @@
 	<!-- stylesheets (.SCSS sheets imported in style.css) -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/layout.css">
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' type='text/css'>
 
 	<!-- style animation -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -46,6 +47,8 @@
 
 <body ng-app="app" ng-controller="App">
 <div class="wrapper">
+	<div id="header">
+		<button id="signupButton" type="button" class="btn" data-toggle="modal" data-target="#signupModal"</button>
 	<div ng-controller="LayoutController" id="navbar">
 		<button ng-click="openSignupModal()" id="signupButton" type="button" class="btn">
 			Signup
@@ -62,7 +65,7 @@
 		<div class="ngview" ng-view autoscroll="true"></div>
 	</div>
 
-	<div class="footer grey">
+	<div id="footer">
 		<div>
 			<a href="#/">HOME</a>
 		</div>
