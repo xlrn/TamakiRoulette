@@ -18,7 +18,7 @@
             </div>
 
             <!--<input class="btn" type="button" onclick="setChoice()" id="randomize" data-toggle="modal" data-target="#random-result" value="Randomize!"> -->
-            <input class="btn" id="randomize" type="button" ng-click="randomize()" data-toggle="modal" data-target="#random-result" value="Randomize!">
+            <input class="btn" id="randomize" type="button" ng-click="randomize()" data-toggle="modal" data-target="#randomResultModal" value="Randomize!">
              <button type="button" class="btn btn-default" id="save" ng-click="saveRoulette()">
                 <div class="glyphicon glyphicon-floppy-disk"></div>
             </button>
@@ -28,10 +28,10 @@
         <div id="suggestions">
             <h2>Roulette Suggestions</h2>
             <ul class="list-group">
-                <button ng-click="generateRandom('number')" class="list-group-item">Number 1-100</a>
-                <button ng-click="generateRandom('headsTails')" class="list-group-item">Heads or Tails</a>
-                <button ng-click="generateRandom('foodCuisines')" class="list-group-item">Food Cuisines</a>
-                <button ng-click="generateRandom('dice')" class="list-group-item">Dice</a>
+                <button ng-click="generateRandom('number')" class="list-group-item">Number 1-100</button>
+                <button ng-click="generateRandom('headsTails')" class="list-group-item">Heads or Tails</button>
+                <button ng-click="generateRandom('foodCuisines')" class="list-group-item">Food Cuisines</button>
+                <button ng-click="generateRandom('dice')" class="list-group-item">Dice</button>
                 <button ng-click="generateRandom('rockPaperScissors')" class="list-group-item">Rock, Paper, Scissors</button>
             </ul>
         </div>
