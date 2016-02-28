@@ -57,13 +57,7 @@
     margin: 20px 20px;
     background: #37474f;
     transition: all 0.3s ease 0s;
-
-    /** button font styling **/
-    font-size: 20px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    border-color: white;
-    color: white;
+    color:white;
 }
 
 #home #centre-content form#choices button#save .glyphicon {
@@ -74,6 +68,28 @@
 #home #centre-content form#choices button#save:hover {
     background: #7986cb;
     color:white;
+}
+
+#home #centre-content button#reset {
+    height: 70px;
+    width: 90px;
+    font-family: 'Raleway', sans-serif;
+    padding-top:10px;
+    margin: 20px 20px;
+    background: #37474f;
+    transition: all 0.3s ease 0s;
+    color:white;
+}
+
+#home #centre-content button#reset:hover {
+    background-position: 0 -80px;
+    background-color: #7986cb;
+}
+
+
+#home #centre-content form#choices button#reset .glyphicon {
+   color:white;
+    font-size:30px;
 }
 
 #home #sidebar #view-more-roulettes {
