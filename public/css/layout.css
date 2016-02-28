@@ -1,53 +1,71 @@
+.container-fluid {
+    background-color:#E6E6E6;
+}
+
 #header {
-    background: #ff9696;
-    height: 150px;
+    background: #7986cb;
+    height: 100px;
+    font-family: 'Raleway', sans-serif;
+    padding-left: 50px;
+    padding-top:8px;
+    text-align:left;
+    font-size: 60px;
+    color:white;
+    margin-bottom:0;
 }
 
 #header button {
-    text-align: center;
-    float:right;
+   float:right;
     z-index: 1000;
-    height: 45px;
-    font-family:Lato;
+    margin: 20px 20px;
+    height: 50px;
+    width: 150px;
+    background-color: #7986cb;
+    transition: all 0.3s ease 0s;
+
+    /** button font styling **/
     font-size: 20px;
-    background-color: #ff9696;
-    border-color: black;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    border-color: white;
+    color:white;
+
 }
 
-#header button a {
-    color: #cccccc;
-    font-size: 1.3em;
-    line-height: 3;
-    margin: 2px;
-    padding: 20px 7px;
+#header button:hover {
+    background: white;
+    color:#7986cb;
+
 }
 
-#header button a:hover {
-    color: #ffffff;
+.container-fluid {
+    padding: 0 !important;
+    min-height: calc(100vh - 185px);
 }
 
 #footer {
     background: #000000;
     width: 100%;
-    padding: 40px 0 60px;
+    padding: 5px 0;
     font-size: 0.9em;
-    text-align: center;
     height: 85px;
     color: #a0a0a0;
 }
 
-#footer a {
+#footer #year {
     display: inline-block;
-    margin: 0px 2px 10px;
-    padding: 0 3px 10px;
-    color: #eeeeee;
-    font-weight: bold;
+    float: left;
+    width: calc(100vw - 125px);
+    text-align: center;
+    padding-top: 25px;
 }
 
-#footer a:hover{
-    color: #eeeeee;
-    text-decoration: none;
+#footer #logo {
+    display: inline-block;
+    float: left;
+    width: 110px;
 }
+
 .sidebar{ 
     text-align: right;
     padding-right: 0;
