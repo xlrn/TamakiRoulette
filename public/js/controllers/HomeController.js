@@ -28,6 +28,7 @@ var app = angular.module('app')
         }
 
         $scope.resetChoices = function() {
+            $("#addMoreChoices").insertBefore("#choices-rows");
             $('#choices-rows').empty();
             numChoices = 0;
             for(var i = 1; i <=3; i++) {
@@ -35,18 +36,19 @@ var app = angular.module('app')
             }
         };
 
+        $('#addMoreChoices').on("click", function() {
+           $scope.addMoreChoices();
+        });
+
         $scope.addMoreChoices = function() {
+            if($('#addMoreChoices').length < 1) {
+
+            }
             $('.shift-right').removeClass('shift-right');
             var html = '<div class=\"row shift-right\">';
             html += addInputChoice() + addInputChoice();
-            if($('#addMoreChoices').length < 1) {
-                var addMoreChoices = '<div id=\"addMoreChoices\" ng-click=\"addMoreChoices()\" class=\"glyphicon glyphicon-plus\"></div>';
-                html += addMoreChoices;
-            }
-            html+='</div>';
+            html += '</div>';
             $('#choices-rows').append(html);
-
-            $compile($('#choices-rows'))($scope);
 
             var choiceId = "#choice" + numChoices;
             $("#addMoreChoices").insertAfter(choiceId);
@@ -73,6 +75,7 @@ var app = angular.module('app')
         };
 
         $scope.generateRandom = function(category) {
+            $scope.resetChoices();
             var choices = [];
             switch(category) {
                 case "number":
