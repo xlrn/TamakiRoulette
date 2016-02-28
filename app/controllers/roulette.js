@@ -1,4 +1,6 @@
-modules.exports = function (app) {
+module.exports = function (app) {
+
+  var choices = require('../app/models/choices');
 
   var Choices = function() {
   function Choices(choice0, choice1, choice2, choice3, choice4, choice5) {
@@ -8,9 +10,9 @@ modules.exports = function (app) {
     this.choice3 = choice3;
     this.choice4 = choice4;
     this.choice5 = choice5;
-  };
+  }};
 
-  postReg = function (req, res, next) {
+  postReg = function () {
     // Set our internal DB variable
     var db = req.db;
 
@@ -19,12 +21,12 @@ modules.exports = function (app) {
 
     // New choices
     var newChoice = new choices({
-      "choice0": req.choice0;
-      "choice1": req.choice1;
-      "choice2": req.choice2;
-      "choice3": req.choice3;
-      "choice4": req.choice4;
-      "choice5": req.choice5;
+      "choice0": req.choice0,
+      "choice1": req.choice1,
+      "choice2": req.choice2,
+      "choice3": req.choice3,
+      "choice4": req.choice4,
+      "choice5": req.choice5
     });
     newChoice.save(function (err, req) {
         if (err) {
@@ -33,7 +35,8 @@ modules.exports = function (app) {
         else {
             res.redirect('main');
           }
-        }
+        res.redirect('/');
+        });
       };
 
 }
