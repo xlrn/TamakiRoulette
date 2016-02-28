@@ -1,3 +1,5 @@
+document.getElementById(randomize).onclick = setChoice;
+
 function chooseOne() {
   var One = Math.floor(Math.random() * 5) + 1;
   return One;
