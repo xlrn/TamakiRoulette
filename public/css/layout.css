@@ -1,3 +1,7 @@
+.container-fluid {
+    background-color:#E6E6E6;
+}
+
 #header {
     background: #7986cb;
     height: 100px;

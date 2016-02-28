@@ -17,17 +17,18 @@
 }
 
 #home #centre-content form#choices input[type="text"] {
-    width: 300px;
-    height: 50px;
+    width: 500px;
+    height: 80px;
     display: inline-block;
     margin: 10px;
     font-size: 20px;
+    border-color: #37474f;
 }
 
 #home #centre-content #randomize {
     margin: 25px;
     color: white;
-    background-color: green;
+    background-color: #37474f;
     font-weight: bold;
     font-size: 30px;
     border-radius: 500px;
@@ -37,13 +38,27 @@
 
 #home #centre-content #randomize:hover {
     background-position: 0 -80px;
-    background-color: darkgreen;
+    background-color: #7986cb;
 }
 
 #home #centre-content form#choices button#save {
-    height: 80px;
+
+    /** button shape**/
+    height: 50px;
+    width: 150px;
     font-size: 16px;
     border-radius: 0;
+    margin: 20px 20px;
+    background: white;
+
+    /** button font styling **/
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    border-color: #37474f;
+    color:#37474f;
+
+
 }
 
 #home #centre-content form#choices button#save .glyphicon {
