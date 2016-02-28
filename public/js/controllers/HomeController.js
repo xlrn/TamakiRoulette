@@ -1,5 +1,5 @@
 var app = angular.module('app')
-    .controller('HomeController', function($scope) {
+    .controller('HomeController', function($scope, $compile) {
         var numChoices = 6;
 
         $scope.saveRoulette = function() {
@@ -38,8 +38,15 @@ var app = angular.module('app')
         $scope.addMoreChoices = function() {
             $('.shift-right').removeClass('shift-right');
             var html = '<div class=\"row shift-right\">';
-            html += addInputChoice() + addInputChoice() + '</div>';
+            html += addInputChoice() + addInputChoice();
+            if($('#addMoreChoices').length < 1) {
+                var addMoreChoices = '<div id=\"addMoreChoices\" ng-click=\"addMoreChoices()\" class=\"glyphicon glyphicon-plus\"></div>';
+                html += addMoreChoices;
+            }
+            html+='</div>';
             $('#choices-rows').append(html);
+
+            $compile($('#choices-rows'))($scope);
 
             var choiceId = "#choice" + numChoices;
             $("#addMoreChoices").insertAfter(choiceId);
