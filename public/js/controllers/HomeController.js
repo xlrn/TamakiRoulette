@@ -1,5 +1,5 @@
 var app = angular.module('app')
-    .controller('HomeController', function($scope, $compile) {
+    .controller('HomeController', function($scope, $compile, $http) {
         var numChoices = 6;
 
         $scope.saveRoulette = function() {
@@ -11,8 +11,10 @@ var app = angular.module('app')
         });
 
         $scope.saveModalSubmit = function() {
-            var saveName = $('#saveRouletteModal').find('input#name').val().trim();
+            var saveName = $('#saveRouletteModal').find('input#Name').val();
             var choices = getChoices();
+            var json ={'cName': saveName, 'choices': choices}
+            $http.post('/save', json);
         }
 
         function getChoices() {

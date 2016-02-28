@@ -5,7 +5,7 @@ module.exports = function(app, passport) {
 	// authentication routes
 
   var choices = require('../app/models/choices');
-  var roulette = require('../app/models/roulette')
+  var roulette = require('../app/models/roulette');
 
 	// frontend routes =========================================================
 	// route to handle all angular requests
@@ -28,13 +28,8 @@ module.exports = function(app, passport) {
 
     // New choices
     var newChoice = new choices({
-      "choice0": req.body.choice0,
-      "choice1": req.body.choice1,
-      "choice2": req.body.choice2,
-      "choice3": req.body.choice3,
-      "choice4": req.body.choice4,
-      "choice5": req.body.choice5,
-      "title": req.body.rName
+      "choices": req.body.choices,
+      "title": req.body.cName
     });
     newChoice.save(function (err, req) {
       if (err) {
@@ -46,9 +41,10 @@ module.exports = function(app, passport) {
         var Title = newChoice.title;
         var ObjectId = newChoice._id.toString();
 
-        var collection = db.get('roulettes');
 
-        var newRoulette = new roulettes({
+        collection = db.get('roulettes');
+
+        var newRoulette = new roulette({
           "username": "placeholder",
           "title": Title,
           "id": ObjectId
