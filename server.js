@@ -20,7 +20,7 @@ var db = mongoose.connect('mongodb://xlrn:qweasdzxc@ds064188.mlab.com:64188/team
 // configuration ===========================================
 
 // config files
-var db = require('./config/db');
+//var db = require('./config/db');
 
 var port = process.env.PORT || 8080; // set our port
 // mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
@@ -52,6 +52,10 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // routes ==================================================
 require('./app/routes.js')(app, passport); // pass our application into our routes
 */
+app.use(function (req, res, next) {
+    req.db = db;
+    next();
+});
 require('./app/routes.js')(app);
 // start app ===============================================
 app.listen(port);

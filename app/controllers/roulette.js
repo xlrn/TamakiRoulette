@@ -1,6 +1,6 @@
-module.exports = function (app) {
+module.exports = function postReg(app)  {
 
-  var choices = require('../app/models/choices');
+  var choices = require('../../app/models/choices');
 
   var Choices = function() {
   function Choices(choice0, choice1, choice2, choice3, choice4, choice5) {
@@ -33,9 +33,8 @@ module.exports = function (app) {
             res.send("There was a problem adding the information to the database.");
         }
         else {
-            res.redirect('main');
+            res.redirect('/');
           }
-        res.redirect('/');
         });
       };
 
