@@ -3,7 +3,7 @@
 }
 
 #home #centre-content form#choices {
-    margin: 20px 0;
+    margin-top: 40px;
 }
 
 #home #centre-content #addMoreChoices {
@@ -52,4 +52,9 @@
 
 #home #sidebar {
     background-color: aliceblue;
+}
+
+#home #sidebar #view-more-roulettes {
+    text-align: center;
+    font-size: 16px;
 }
