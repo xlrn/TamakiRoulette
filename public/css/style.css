@@ -9,6 +9,10 @@ a{
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration:none;
+}
+
 .hidden {
     visibility: hidden;
 }

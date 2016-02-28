@@ -14,6 +14,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         $(document).ready(function(){ $("#signupButton").load("views/_signupModal.html"); });
         $(document).ready(function(){ $("#loginButton").load("views/_loginModal.html"); });
 
+        $scope.year = new Date().getFullYear();
+
         $.fn.extend({
             animateCss: function (animationName) {
                 var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
