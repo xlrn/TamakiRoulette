@@ -1,11 +1,11 @@
 #header {
     background: #7986cb;
-    height: 150px;
+    height: 100px;
     font-family: 'Raleway', sans-serif;
     padding-left: 50px;
     padding-top:10px;
     text-align:left;
-    font-size: 85px;
+    font-size: 60px;
     color:white;
     margin-bottom:0;
 }
@@ -14,13 +14,13 @@
    float:right;
     z-index: 1000;
     margin: 20px 20px;
-    height: 100px;
-    width: 200px;
+    height: 50px;
+    width: 150px;
     background-color: #7986cb;
     transition: all 0.3s ease 0s;
 
     /** button font styling **/
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Raleway', sans-serif;
     text-align: center;
     border-color: white;
