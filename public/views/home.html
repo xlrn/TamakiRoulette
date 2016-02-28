@@ -16,7 +16,7 @@
                     <div id="addMoreChoices" ng-click="addMoreChoices()" class="glyphicon glyphicon-plus"></div>
                 </div>
             </div>
-            <input class="btn" type="button" onclick="setChoice()" id="randomize" value="Randomize!">
+            <input class="btn" type="button" onclick="setChoice()" id="randomize" data-toggle="modal" data-target="#random-result" value="Randomize!">
             <button type="button" class="btn btn-default" id="save" ng-click="saveChoices()">
                 <div class="glyphicon glyphicon-floppy-disk"></div>
                 <div> Save Choices</div>
@@ -24,14 +24,14 @@
         </form>
         <!--<h2> I HAVE CHOSEN </h2>-->
         <!--<script type="text/javascript" src="../js/randomizer.js"></script>-->
-        <input type="text" id="randomized" placeholder="what choice?">
+        <!--<input type="text" id="randomized" placeholder="what choice?">-->
         <!--<input type="button" onclick="setChoice()" id="randomize" value="Click Me!">-->
     </div>
     <div id="sidebar" class="col-md-3">
         <div id="suggestions">
             <h2>Suggestions</h2>
             <ul class="list-group">
-                <a href="#" class="list-group-item">Suggestion 1</a>
+                <a href="#" class="list-group-item list-group-item-info">Suggestion 1</a>
                 <a href="#" class="list-group-item">Suggestion 2</a>
                 <a href="#" class="list-group-item">Suggestion 3</a>
                 <a href="#" class="list-group-item">Suggestion 4</a>
@@ -71,4 +71,22 @@
         </div>
     </div>
 
+</div>
+
+<div class="modal fade" id="random-result" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">The random choice is....</h4>
+            </div>
+            <div class="modal-body">
+            	<p id="randomized">test</p>
+            </div>
+            <div class="modal-footer">
+            	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            
+        </div>
+    </div>
 </div>
