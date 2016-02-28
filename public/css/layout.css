@@ -44,7 +44,7 @@
 }
 
 #footer {
-    background: #000000;
+    background: #37474f;
     width: 100%;
     padding: 5px 0;
     font-size: 0.9em;
@@ -58,6 +58,7 @@
     width: calc(100vw - 125px);
     text-align: center;
     padding-top: 25px;
+    font-size:20px;
 }
 
 #footer #logo {

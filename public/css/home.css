@@ -30,6 +30,7 @@
     margin-left: 20px;
 }
 
+/** Randomize Button **/
 #home #centre-content #randomize {
     margin: 25px;
     color: white;
@@ -57,14 +58,10 @@
     margin: 20px 20px;
     background: #37474f;
     transition: all 0.3s ease 0s;
-
-    /** button font styling **/
-    font-size: 20px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
-    border-color: white;
-    color: white;
+    color:white;
 }
+
+/** Save Button **/
 
 #home #centre-content form#choices button#save .glyphicon {
    position:center;
@@ -76,27 +73,65 @@
     color:white;
 }
 
+#home #centre-content button#reset {
+    height: 70px;
+    width: 90px;
+    font-family: 'Raleway', sans-serif;
+    padding-top:10px;
+    margin: 20px 20px;
+    background: #37474f;
+    transition: all 0.3s ease 0s;
+    color:white;
+}
+
+/** Reset Button **/
+
+#home #centre-content button#reset:hover {
+    background-position: 0 -80px;
+    background-color: #7986cb;
+}
+
+
+#home #centre-content form#choices button#reset .glyphicon {
+   color:white;
+    font-size:30px;
+}
+
+/** View More **/
+
 #home #sidebar #view-more-roulettes {
     text-align: center;
     font-size: 16px;
 }
 
+/** Sidebar **/
+
 #home #sidebar {
     background-color: #E6E6E6;
+    font-family: 'Raleway', sans-serif;
 }
+
+/** Suggestions Sidebar **/
+
+#home #sidebar #suggestions button:hover {
+    background-color:#7986cb;
+    color:white;
+}
+
+/** Results Modal **/
 
 #randomResultModal .modal-content {
     background-color: #E6E6E6;
 }
 
 #randomResultModal #result {
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Raleway', sans-serif;
     text-align: center;
 }
 
 #randomResultModal button.btn {
-    background-color: #7986cb;
+    background-color: #37474f;
     color:white;
     transition: all 0.3s ease 0s;
     height:40px;
@@ -104,7 +139,7 @@
 }
 
 #randomResultModal button.btn:hover {
-    background-color: white;
-    color: #7986cb;
-    border-color: #7986cb;
+    background-color: #7986cb;
+    color: white;
+    border-color: white;
 }
