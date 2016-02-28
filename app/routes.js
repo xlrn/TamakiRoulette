@@ -5,6 +5,7 @@ module.exports = function(app, passport) {
 	// authentication routes
 
   var choices = require('../app/models/choices');
+  var roulette = require('../app/models/roulette')
 
 	// frontend routes =========================================================
 	// route to handle all angular requests
@@ -16,9 +17,9 @@ module.exports = function(app, passport) {
     res.render('./views/home');
   })
 
-  var Roulette = require('../app/controllers/roulette');
+  // submit choices to database
 
-  app.post('/save', function(req, res) {
+  app.post('/save', function(req, res, next) {
     // Set our internal DB variable
     var db = req.db;
 
@@ -32,17 +33,39 @@ module.exports = function(app, passport) {
       "choice2": req.body.choice2,
       "choice3": req.body.choice3,
       "choice4": req.body.choice4,
-      "choice5": req.body.choice5
+      "choice5": req.body.choice5,
+      "title": req.body.rName
     });
     newChoice.save(function (err, req) {
       if (err) {
         res.send("There was a problem adding the information to the database.");
       }
       else {
-        res.redirect('/');
+
+        // submit roulette
+        var Title = newChoice.title;
+        var ObjectId = newChoice._id.toString();
+
+        var collection = db.get('roulettes');
+
+        var newRoulette = new roulettes({
+          "username": "placeholder",
+          "title": Title,
+          "id": ObjectId
+        });
+
+        newRoulette.save(function(err, req) {
+          if (err) {
+            res.send("You have a problem");
+          }
+          else {
+            res.redirect('/');
+          }
+        });
       }
     });
-  })
+  });
+
 
   // Login =================================
         // process the login form

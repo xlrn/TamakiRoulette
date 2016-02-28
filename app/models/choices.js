@@ -7,6 +7,7 @@ var Choices = new Schema({
     choice2: String,
     choice3: String,
     choice4: String,
-    choice5: String
+    choice5: String,
+    title: String
 });
 module.exports = mongoose.model('Choices', Choices);
