@@ -13,13 +13,13 @@
             <input type="text" class="form-control" name="choice4" id="choice4" placeholder="Choice 5"/>
             <input type="text" class="form-control" name="choice5" id="choice5" placeholder="Choice 6"/>
             </div>
-            <input class="btn" type="submit" value="Randomize!">
+            <input class="btn" type="submit" onclick="setChoice()" id="randomize" value="Randomize!">
             <button type="button" class="btn btn-default" id="save" ng-click="saveChoices()">
                 <div class="glyphicon glyphicon-floppy-disk"></div>
                 <div> Save Choices </div>
             </button>
         </form>
-        <h2> I HAVE CHOSEN </h2>
+        <!--<h2> I HAVE CHOSEN </h2>-->
         <script type="text/javascript" src="../js/randomizer.js"></script>
         <input type="text" id="randomized" placeholder="what choice?">
         <input type="button" onclick="setChoice()" id="randomize" value="Click Me!">
