@@ -6,8 +6,15 @@ function chooseOne() {
 }
 
 function setChoice() {
+
+   var f = document.parm;
+
   var One = chooseOne();
   var Choice = document.getElementById("choice" + One).value;
   var Change = document.getElementById("randomized").value;
   Change = Choice;
+
+  f.Change.readOnly = false;
+  f.Change.value = Choice;
+  f.Change.readOnly = true;
 }
