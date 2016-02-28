@@ -1,14 +1,18 @@
-.navbar {
-    height: 63px;
+#header {
+    background: #ff9696;
+    height: 150px;
 }
 
-.navbar button {
+#header button {
     text-align: center;
+    float:right;
     z-index: 1000;
-    height: 63px;
+    height: 45px;
+    font-family:Lato;
+    font-size: 20px;
 }
 
-.navbar button a {
+#header button a {
     color: #cccccc;
     font-size: 1.3em;
     line-height: 3;
@@ -16,12 +20,12 @@
     padding: 20px 7px;
 }
 
-.navbar button a:hover {
+#header button a:hover {
     color: #ffffff;
 }
 
-.footer {
-    background: #2b2b2b;
+#footer {
+    background: #000000;
     width: 100%;
     padding: 40px 0 60px;
     font-size: 0.9em;
@@ -30,15 +34,15 @@
     color: #a0a0a0;
 }
 
-.footer a {
+#footer a {
     display: inline-block;
     margin: 0px 2px 10px;
     padding: 0 3px 10px;
-    color: #bbbbbb;
+    color: #eeeeee;
     font-weight: bold;
 }
 
-.footer a:hover{
+#footer a:hover{
     color: #eeeeee;
     text-decoration: none;
 }
