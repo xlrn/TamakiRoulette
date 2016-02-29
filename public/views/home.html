@@ -45,7 +45,7 @@
                 <button class="list-group-item disabled" id="noSavedRoulettes">Loading ...</button>
             </ul>
             <ul class="list-group" ng-if="savedRoulettes">
-                <button ng-repeat="roulette in savedRoulettes" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" ng-if="roulette.title">{{roulette.title}}</button>
+                <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | limitTo: 4" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" ng-if="roulette.title">{{roulette.title}}</button>
                 <button ng-if="savedRoulettes.length > 4" id="view-more-roulettes" class="list-group-item" ng-click="viewMoreSavedRoulettes()">View All</button>
             </ul>
         </div>
@@ -82,10 +82,7 @@
                     <h4 class="modal-title" id="myModalLabel">Load saved roulettes</h4>
                 </div>
                 <div class="modal-body">
-                    <!-- <a ng-repeat= "roulette in roulettes" href="#" class="list-group-item">{{roulette.name}}</a> -->
-                    <a href="#" class="list-group-item">Suggestion 2</a>
-                    <a href="#" class="list-group-item">Suggestion 3</a>
-                    <a href="#" class="list-group-item">Suggestion 4</a>
+                    <button ng-repeat="roulette in savedRoulettes | orderBy:'title'" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" data-dismiss="modal">{{roulette.title}}</button>
                 </div>
             </div>
         </div>
