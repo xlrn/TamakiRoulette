@@ -23,7 +23,14 @@ module.exports = function(app, passport) {
       });
   });
 
-  app.get('')
+  app.get('/choices', function(req, res) {
+     choices.findOne({ _id: req.query.id}, function(err, choices) {
+          if(err) {
+              next(err);
+          }
+          res.json(choices);
+      });
+  });
 
   // submit choices to database
 

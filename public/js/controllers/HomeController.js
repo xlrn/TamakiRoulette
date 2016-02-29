@@ -126,9 +126,18 @@ var app = angular.module('app')
             }
         }
 
-        $scope.loadSavedRouletteId = function(id) {
-            //post to get choices from id
-            $scope.resetChoices();
-            //autoInputChoices(choices);
-        }
+        $scope.loadSavedRouletteId = function(rouletteId) {
+            $http({
+                method: 'GET',
+                url: '/choices',
+                params: {id : rouletteId}
+            })
+                .success(function(res) {
+                    $scope.resetChoices();
+                    autoInputChoices(res.choices);
+                })
+                .error(function(err) {
+                    console.error("Failed to get choices from roulette id: " + err);
+                });
+        };
     });
