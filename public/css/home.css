@@ -1,3 +1,22 @@
+#home #saveStatus {
+    background-color: white;
+    font-size: 20px;
+    padding: 3px;
+    margin-top: -6px;
+}
+
+#home #saveStatus.success {
+    color: green;
+    border-bottom: green 3px solid;
+    margin-top: 0;
+}
+
+#home #saveStatus.fail {
+    color: red;
+    border-bottom: red 3px solid;
+    margin-top: 0;
+}
+
 #home #centre-content {
     text-align: center;
 }

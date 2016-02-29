@@ -25,8 +25,39 @@ var app = angular.module('app')
 
         $scope.saveModalSubmit = function() {
             var choices = getChoices();
-            var json ={'cName': $scope.saveName, 'choices': choices}
-            $http.post('/save', json);
+            var json = {'cName': $scope.saveName, 'choices': choices}
+            $http.post('/save', json)
+                .then(function() {
+                    renderSaveStatus(true);
+                },
+                function() {
+                   renderSaveStatus(false);
+                });
+        };
+
+        function renderSaveStatus(success) {
+            var statusElement = $('#saveStatus');
+            statusElement.removeClass();
+            if (success) {
+                $scope.saveStatus = "Successfully saved choices";
+                statusElement.addClass('success');
+            }
+            else {
+                $scope.saveStatus = "Failed to save choices";
+                statusElement.addClass('fail');
+            }
+            statusElement.animateCss('fadeInDown');
+
+            statusElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                setTimeout(function() {
+                    statusElement.animateCss('fadeOutUp');
+                    statusElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                        $scope.saveStatus = "";
+                        statusElement.removeClass();
+                        $scope.$apply();
+                    });
+                }, 3000);
+            });
         }
 
         function getChoices() {
