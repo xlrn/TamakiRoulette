@@ -1,5 +1,18 @@
 var app = angular.module('app')
     .controller('HomeController', function($scope, $compile, $http) {
+        getSavedRoulettes();
+
+        function getSavedRoulettes() {
+            $http.get("/roulette").then(function(res) {
+                $scope.savedRoulettes = res.data;
+                if($scope.savedRoulettes.length === 0) {
+                    $("#noSavedRoulettes").text("No saved roulettes");
+                }
+            }).catch(function() {
+               console.error("Error getting saved roulettes");
+            });
+        }
+
         var numChoices = 6;
 
         $scope.saveRoulette = function() {
@@ -112,5 +125,11 @@ var app = angular.module('app')
             for (var i = 0; i<choices.length; i++) {
                 $(inputs[i]).val(choices[i]);
             }
+        }
+
+        $scope.loadSavedRouletteId = function(id) {
+            //post to get choices from id
+            $scope.resetChoices();
+            //autoInputChoices(choices);
         }
     });

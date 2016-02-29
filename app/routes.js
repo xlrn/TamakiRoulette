@@ -8,28 +8,22 @@ module.exports = function(app, passport) {
   var roulette = require('../app/models/roulette');
 
 	// frontend routes =========================================================
-	// route to handle all angular requests
-	app.get('*', function(req, res) {
-		res.sendfile('./public/index.html');
-	});
 
-  app.get('/', function(req, res) {
-    var sug = new [roulette];
-    roulette.find({ username: 'placeholder' }, function (err, projects) {
-        if (err) {
-            next(err);
-        }
-        else if (!roulette) {
-            sug = [];
-        }
-        else {
-            sug = roulette;
-        }
-    });
-    res.render('./views/home', {
-      suggestions: roulette
-    });
-  })
+  app.get('/roulette', function(req, res) {
+      roulette.find({ username: 'placeholder' }, function (err, projects) {
+            if (err) {
+                next(err);
+            }
+            else if (!projects) {
+                res.json([]);
+            }
+            else {
+                res.json(projects);
+            }
+      });
+  });
+
+  app.get('')
 
   // submit choices to database
 
@@ -93,4 +87,10 @@ module.exports = function(app, passport) {
           failureRedirect : '/', // redirect back to the signup page if there is an error
           failureFlash : true // allow flash messages
         }));
-  };
+
+
+    // route to handle all angular requests
+    app.get('*', function(req, res) {
+        res.sendfile('./public/index.html');
+    });
+  }
