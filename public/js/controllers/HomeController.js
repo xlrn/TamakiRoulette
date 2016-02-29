@@ -11,6 +11,7 @@ var app = angular.module('app')
             }).catch(function() {
                console.error("Error getting saved roulettes");
             });
+            $scope.$apply();
         }
 
         var numChoices = 6;
@@ -29,6 +30,7 @@ var app = angular.module('app')
             $http.post('/save', json)
                 .then(function() {
                     renderSaveStatus(true);
+                    getSavedRoulettes();
                 },
                 function() {
                    renderSaveStatus(false);

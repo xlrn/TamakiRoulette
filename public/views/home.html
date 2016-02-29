@@ -83,7 +83,7 @@
                     <h4 class="modal-title" id="myModalLabel">Load saved roulettes</h4>
                 </div>
                 <div class="modal-body">
-                    <button ng-repeat="roulette in savedRoulettes | orderBy:'title'" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" data-dismiss="modal">{{roulette.title}}</button>
+                    <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | orderBy:'title'" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" data-dismiss="modal">{{roulette.title}}</button>
                 </div>
             </div>
         </div>
