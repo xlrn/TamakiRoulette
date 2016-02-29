@@ -17,6 +17,11 @@ a:hover {
     visibility: hidden;
 }
 
+.modal .modal-body {
+    max-height: calc(100vh - 20vh);
+    overflow-y: auto;
+}
+
 .modal .modal-footer {
     text-align: center;
 }

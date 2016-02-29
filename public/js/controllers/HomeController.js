@@ -1,5 +1,19 @@
 var app = angular.module('app')
     .controller('HomeController', function($scope, $compile, $http) {
+        getSavedRoulettes();
+
+        function getSavedRoulettes() {
+            $http.get("/roulette").then(function(res) {
+                $scope.savedRoulettes = res.data;
+                if($scope.savedRoulettes.length === 0) {
+                    $("#noSavedRoulettes").text("No saved roulettes");
+                }
+            }).catch(function() {
+               console.error("Error getting saved roulettes");
+            });
+            $scope.$apply();
+        }
+
         var numChoices = 6;
 
         $scope.saveRoulette = function() {
@@ -11,10 +25,41 @@ var app = angular.module('app')
         });
 
         $scope.saveModalSubmit = function() {
-            var saveName = $('#saveRouletteModal').find('input#Name').val();
             var choices = getChoices();
-            var json ={'cName': saveName, 'choices': choices}
-            $http.post('/save', json);
+            var json = {'cName': $scope.saveName, 'choices': choices}
+            $http.post('/save', json)
+                .then(function() {
+                    renderSaveStatus(true);
+                    getSavedRoulettes();
+                },
+                function() {
+                   renderSaveStatus(false);
+                });
+        };
+
+        function renderSaveStatus(success) {
+            var statusElement = $('#saveStatus');
+            statusElement.removeClass();
+            if (success) {
+                $scope.saveStatus = "Successfully saved choices";
+                statusElement.addClass('success');
+            }
+            else {
+                $scope.saveStatus = "Failed to save choices";
+                statusElement.addClass('fail');
+            }
+            statusElement.animateCss('fadeInDown');
+
+            statusElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                setTimeout(function() {
+                    statusElement.animateCss('fadeOutUp');
+                    statusElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                        $scope.saveStatus = "";
+                        statusElement.removeClass();
+                        $scope.$apply();
+                    });
+                }, 3000);
+            });
         }
 
         function getChoices() {
@@ -113,4 +158,19 @@ var app = angular.module('app')
                 $(inputs[i]).val(choices[i]);
             }
         }
+
+        $scope.loadSavedRouletteId = function(rouletteId) {
+            $http({
+                method: 'GET',
+                url: '/choices',
+                params: {id : rouletteId}
+            })
+                .success(function(res) {
+                    $scope.resetChoices();
+                    autoInputChoices(res.choices);
+                })
+                .error(function(err) {
+                    console.error("Failed to get choices from roulette id: " + err);
+                });
+        };
     });

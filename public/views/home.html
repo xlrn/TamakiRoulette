@@ -1,5 +1,6 @@
 <div id="home">
     <div id="centre-content" class="col-md-9">
+        <div id="saveStatus" ng-bind="saveStatus"></div>
         <form id="choices" action='/save' method='post'>
             <div id="choices-rows">
                 <div class="row">
@@ -41,12 +42,12 @@
         </div>
         <div id="saved-bar">
             <h2>Saved Roulettes</h2>
-            <ul class="list-group">
-                <a href="#" class="list-group-item">Suggestion 1</a>
-                <a href="#" class="list-group-item">Suggestion 2</a>
-                <a href="#" class="list-group-item">Suggestion 3</a>
-                <a href="#" class="list-group-item">Suggestion 4</a>
-                <button id="view-more-roulettes" class="list-group-item" ng-click="viewMoreSavedRoulettes()">View More</button>
+            <ul class="list-group" ng-if="!savedRoulettes">
+                <button class="list-group-item disabled" id="noSavedRoulettes">Loading ...</button>
+            </ul>
+            <ul class="list-group" ng-if="savedRoulettes">
+                <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | limitTo: 4" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" ng-if="roulette.title">{{roulette.title}}</button>
+                <button ng-if="savedRoulettes.length > 4" id="view-more-roulettes" class="list-group-item" ng-click="viewMoreSavedRoulettes()">View All</button>
             </ul>
         </div>
     </div>
@@ -62,11 +63,11 @@
                 </div>
                 <div class="modal-body">
                     <fieldset class="form-group">
-                        <input type="text" class="form-control" name="Name" id="Name" placeholder="Name">
+                        <input type="text" class="form-control" name="Name" id="Name" placeholder="Name" ng-model="saveName">
                     </fieldset>
                 </div>
                 <div class="modal-footer">
-                    <button ng-click="saveModalSubmit()" type="button" class="btn btn-primary">Save</button>
+                    <button ng-click="saveModalSubmit()" data-dismiss="modal" type="button" class="btn btn-primary" ng-disabled="!saveName">Save</button>
                 </div>
             </div>
         </div>
@@ -82,10 +83,7 @@
                     <h4 class="modal-title" id="myModalLabel">Load saved roulettes</h4>
                 </div>
                 <div class="modal-body">
-                    <!-- <a ng-repeat= "roulette in roulettes" href="#" class="list-group-item">{{roulette.name}}</a> -->
-                    <a href="#" class="list-group-item">Suggestion 2</a>
-                    <a href="#" class="list-group-item">Suggestion 3</a>
-                    <a href="#" class="list-group-item">Suggestion 4</a>
+                    <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | orderBy:'title'" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" data-dismiss="modal">{{roulette.title}}</button>
                 </div>
             </div>
         </div>

@@ -12,6 +12,8 @@
     font-size: 60px;
     color:white;
     margin-bottom:0;
+    position: relative;
+    z-index: 100;
 }
 
 #header button {
