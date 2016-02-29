@@ -24,9 +24,8 @@ var app = angular.module('app')
         });
 
         $scope.saveModalSubmit = function() {
-            var saveName = $('#saveRouletteModal').find('input#Name').val();
             var choices = getChoices();
-            var json ={'cName': saveName, 'choices': choices}
+            var json ={'cName': $scope.saveName, 'choices': choices}
             $http.post('/save', json);
         }
 
