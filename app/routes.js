@@ -20,16 +20,21 @@ module.exports = function(app, passport) {
             next(err);
         }
         else if (!roulette) {
-            sug = [];
+
+          console.log('value of' + sug);
+          return res.render('./views/home', {
+            suggestions: []
+          });
         }
         else {
-            sug = roulette;
+
+          console.log('value of' + sug);
+          return res.render('./views/home', {
+            suggestions: sug
+          });
         }
     });
-    res.render('./views/home', {
-      suggestions: roulette
-    });
-  })
+  });
 
   // submit choices to database
 
