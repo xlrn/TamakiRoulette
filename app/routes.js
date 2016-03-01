@@ -7,7 +7,6 @@ module.exports = function(app, passport) {
   var choices = require('../app/models/choices');
   var roulette = require('../app/models/roulette');
 
-	// frontend routes =========================================================
 
   app.get('/roulette', function(req, res) {
       roulette.find({ username: 'placeholder' }, function (err, projects) {
