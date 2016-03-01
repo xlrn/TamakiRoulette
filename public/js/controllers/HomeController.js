@@ -9,7 +9,7 @@ var app = angular.module('app')
                     $("#noSavedRoulettes").text("No saved roulettes");
                 }
             }).catch(function() {
-               console.error("Error getting saved roulettes");
+                $("#noSavedRoulettes").text("Error getting saved roulettes");
             });
             $scope.$apply();
         }

@@ -27,12 +27,12 @@
 
 #home #centre-content #addMoreChoices {
     font-size: 25px;
-    color: #666666;
+    color: #37474F;
     margin-left: 10px;
 }
 
 #home #centre-content #addMoreChoices:hover {
-    color: black;
+    color: #7986cb;
 }
 
 #home #centre-content form#choices input[type="text"] {
@@ -83,7 +83,6 @@
 /** Save Button **/
 
 #home #centre-content form#choices button#save .glyphicon {
-   position:center;
     font-size: 30px;
 }
 
