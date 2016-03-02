@@ -50,7 +50,7 @@ var app = angular.module('app')
             }
             statusElement.animateCss('fadeInDown');
 
-           /* statusElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            statusElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                 setTimeout(function() {
                     statusElement.animateCss('fadeOutUp');
                     statusElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
@@ -59,7 +59,7 @@ var app = angular.module('app')
                         $scope.$apply();
                     });
                 }, 3000);
-            });*/
+            });
         }
 
         function getChoices() {
