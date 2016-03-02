@@ -29,37 +29,37 @@ var app = angular.module('app')
             var json = {'cName': $scope.saveName, 'choices': choices}
             $http.post('/save', json)
                 .then(function() {
-                    renderSaveStatus(true);
+                    renderNotification(true);
                     getSavedRoulettes();
                 },
                 function() {
-                   renderSaveStatus(false);
+                   renderNotification(false);
                 });
         };
 
-        function renderSaveStatus(success) {
-            var statusElement = $('#saveStatus');
+        function renderNotification(success) {
+            var statusElement = $('#notification');
             statusElement.removeClass();
             if (success) {
-                $scope.saveStatus = "Successfully saved choices";
+                $scope.notification = "Successfully saved choices";
                 statusElement.addClass('success');
             }
             else {
-                $scope.saveStatus = "Failed to save choices";
+                $scope.notification = "Failed to save choices";
                 statusElement.addClass('fail');
             }
             statusElement.animateCss('fadeInDown');
 
-            statusElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+           /* statusElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                 setTimeout(function() {
                     statusElement.animateCss('fadeOutUp');
                     statusElement.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-                        $scope.saveStatus = "";
+                        $scope.notification = "";
                         statusElement.removeClass();
                         $scope.$apply();
                     });
                 }, 3000);
-            });
+            });*/
         }
 
         function getChoices() {
