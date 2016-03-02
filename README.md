@@ -1,5 +1,6 @@
-TAMAKI ROULETTE
+**TAMAKI ROULETTE**
 (name has no significant value)
+http://tamakiroulette.herokuapp.com
 
 What is it?
 A MEAN stack web app that randomizes choices, it also allows users to save your choices and load them up for future use.
