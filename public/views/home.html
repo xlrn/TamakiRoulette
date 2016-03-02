@@ -43,7 +43,7 @@
         <div id="saved-bar">
             <h2>Saved Roulettes</h2>
             <ul class="list-group" ng-if="!savedRoulettes">
-                <button class="list-group-item disabled" id="noSavedRoulettes">Loading ...</button>
+                <button class="list-group-item disabled" ng-bind="noSavedRoulettes">Loading ...</button>
             </ul>
             <ul class="list-group" ng-if="savedRoulettes">
                 <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | limitTo: 4" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" ng-if="roulette.title">{{roulette.title}}</button>
