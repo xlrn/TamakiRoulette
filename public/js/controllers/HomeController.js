@@ -4,7 +4,7 @@ var app = angular.module('app')
 
         function getSavedRoulettes() {
             RouletteService.get().then(function (res) {
-                $scope.savedRoulettes = res.data;
+                $scope.savedRoulettes = $scope.shuffleArray(res.data);
                 if ($scope.savedRoulettes.length === 0) {
                     $scope.noSavedRoulettes = "No saved roulettes";
                 }
