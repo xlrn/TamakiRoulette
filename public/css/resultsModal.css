@@ -1,0 +1,25 @@
+/** Results Modal **/
+
+#randomResultModal .modal-content {
+    background-color: #E6E6E6;
+}
+
+#randomResultModal #result {
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+#randomResultModal button.btn {
+    background-color: #37474f;
+    color:white;
+    transition: all 0.3s ease 0s;
+    height:40px;
+    width: 200px;
+}
+
+#randomResultModal button.btn:hover {
+    background-color: #7986cb;
+    color: white;
+    border-color: white;
+}
