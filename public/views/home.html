@@ -46,13 +46,13 @@
                 <button class="list-group-item disabled" ng-bind="noSavedRoulettes">Loading ...</button>
             </ul>
             <ul class="list-group" ng-if="savedRoulettes">
-                <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | limitTo: 4" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" ng-if="roulette.title">{{roulette.title}}</button>
+                <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | limitTo: 5" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" ng-if="roulette.title">{{roulette.title}}</button>
                 <button ng-if="savedRoulettes.length > 4" id="view-more-roulettes" class="list-group-item" ng-click="viewMoreSavedRoulettes()">View All</button>
             </ul>
         </div>
     </div>
 
-    <div class="modal fade" id="saveRouletteModal" data-backdrop="static" tabindex="-1" role="dialog"
+    <div class="modal fade" id="saveRouletteModal" tabindex="-1" role="dialog"
          aria-labelledby="saveRouletteModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="savedRoulettesModal" data-backdrop="static" tabindex="-1" role="dialog"
+    <div class="modal fade" id="savedRoulettesModal" tabindex="-1" role="dialog"
          aria-labelledby="savedRoulettesModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -83,7 +83,19 @@
                     <h4 class="modal-title" id="myModalLabel">Load saved roulettes</h4>
                 </div>
                 <div class="modal-body">
-                    <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | orderBy:'title'" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" data-dismiss="modal">{{roulette.title}}</button>
+                    <div id="rouletteItem" ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | orderBy:'title'" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" data-dismiss="modal">
+                        <div class="rouletteName">
+                            {{roulette.title}}
+                        </div>
+                        <div class="rouletteButtons" ng-click="$event.stopPropagation()">
+                            <div ng-click="editRouletteName($event, roulette)" class="editRouletteName">
+                                Edit
+                            </div>
+                            <div ng-click="deleteRoulette($event, roulette)" class="deleteRoulette">
+                                Delete
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,7 +103,7 @@
 
 </div>
 
-<div class="modal fade" id="randomResultModal" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="randomResultModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

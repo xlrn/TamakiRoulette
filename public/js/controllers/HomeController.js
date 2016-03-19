@@ -165,4 +165,21 @@ var app = angular.module('app')
                 renderNotification(false, "Failed to get choices from saved roulette");
             });
         };
+
+        $scope.editRouletteName = function ($event, roulette) {
+            //var rouletteName = current roulette name
+            //change parent div to input box containing rouletteName, beside it is check mark
+            //$scope.$apply()
+
+            //check for enter key or checkmark press which calls updateRouletteName( whatever was in input, roulette.id or roulette._id)
+            var updateRouletteName = function(name, rouletteId) {
+                //call delete http.put in RouletteService
+                //set parent div back to what it was before but with new roulette name as text
+            }
+
+        };
+
+        $scope.deleteRoulette = function ($event, roulette) {
+            //call delete http.delete in RouletteService
+        }
     }]);

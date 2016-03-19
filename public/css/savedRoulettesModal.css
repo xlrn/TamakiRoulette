@@ -1,0 +1,46 @@
+#savedRoulettesModal .modal-body #rouletteItem {
+    background: #7986cb;
+    color: white;
+    cursor: pointer;
+}
+
+#savedRoulettesModal .modal-body #rouletteItem:hover {
+    background: #37474f;
+    color: white;
+}
+
+#savedRoulettesModal .modal-body .rouletteName {
+    display: inline-block;
+}
+
+#savedRoulettesModal .modal-body .rouletteButtons {
+    float: right;
+    display: none;
+}
+
+#savedRoulettesModal .modal-body .rouletteButtons div {
+    display: inline-block;
+    width: 70px;
+    text-align: center;
+    padding: 0 15px;
+}
+
+#savedRoulettesModal .modal-body .rouletteButtons .editRouletteName {
+    background-color: slateblue;
+}
+
+#savedRoulettesModal .modal-body .rouletteButtons .editRouletteName:hover {
+    background-color: lightsteelblue;
+}
+
+#savedRoulettesModal .modal-body .rouletteButtons .deleteRoulette {
+    background-color: maroon;
+}
+
+#savedRoulettesModal .modal-body .rouletteButtons .deleteRoulette:hover {
+    background-color: red;
+}
+
+#savedRoulettesModal .modal-body #rouletteItem:hover .rouletteButtons {
+    display: inline-block;
+}
