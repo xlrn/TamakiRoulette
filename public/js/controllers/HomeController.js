@@ -3,14 +3,14 @@ var app = angular.module('app')
         getSavedRoulettes();
 
         function getSavedRoulettes() {
-            RouletteService.get().then(function (res) {
+            RouletteService.getAll().then(function (res) {
                 $scope.savedRoulettes = $scope.shuffleArray(res.data);
                 if ($scope.savedRoulettes.length === 0) {
                     $scope.noSavedRoulettes = "No saved roulettes";
                 }
             }, function () {
                 $scope.noSavedRoulettes = "Error getting saved roulettes";
-            })
+            });
         }
 
         var numChoices = 6;
@@ -158,7 +158,7 @@ var app = angular.module('app')
         }
 
         $scope.loadSavedRouletteId = function (rouletteId) {
-            RouletteService.getChoices(rouletteId).then(function(res){
+            RouletteService.getOne(rouletteId).then(function(res){
                 $scope.resetChoices();
                 autoInputChoices(res.data.choices);
             }, function() {
@@ -177,9 +177,20 @@ var app = angular.module('app')
                 //set parent div back to what it was before but with new roulette name as text
             }
 
+            /*RouletteService.put().then(function (res) {
+
+            }, function () {
+
+            });
+            */
+
         };
 
         $scope.deleteRoulette = function ($event, roulette) {
-            //call delete http.delete in RouletteService
-        }
+            /*RouletteService.delete().then(function (res) {
+
+            }, function () {
+
+            }); */
+        };
     }]);

@@ -113,15 +113,8 @@
 
 
 #home #centre-content form#choices button#reset .glyphicon {
-   color:white;
+    color: white;
     font-size:30px;
-}
-
-/** View More **/
-
-#home #sidebar #view-more-roulettes {
-    text-align: center;
-    font-size: 16px;
 }
 
 /** Sidebar **/
@@ -132,9 +125,12 @@
     font-color:#37474f;
 }
 
-/** Suggestions Sidebar **/
-
-#home #sidebar #suggestions button:hover {
+#home #sidebar button:hover {
     background-color:#7986cb;
-    color:white;
+    color: white;
+}
+
+#home #sidebar #saved-bar #view-more-roulettes {
+    text-align: center;
+    font-size: 16px;
 }
