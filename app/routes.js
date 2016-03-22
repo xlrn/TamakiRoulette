@@ -69,13 +69,15 @@ module.exports = function (app, passport) {
 
     //Update roulette
     app.put('/roulettes', function (req, res) {
-        var id = req.body.id;
         var newName = req.body.title;
-        choices.findByIdAndUpdate(id, { $set: { title: newName}}, function (err, roulette) {
-            if (err) {
-                res.send(err);
-            } else {
-                res.send(roulette);
+        // this crazy thing has to be done twice because "title" is found in both roulettes and choices :/
+        roulette.findByIdAndUpdate(req.body._id, { $set: { title: newName }}, function (err, roulette) {
+            if (!err) {
+                choices.findByIdAndUpdate(req.body.id, {$set: {title: newName}}, function (err, choice) {
+                    if (!err) {
+                        res.send(choice);
+                    }
+                });
             }
         });
     });
@@ -83,19 +85,15 @@ module.exports = function (app, passport) {
     //Delete a roulette
     app.delete('/roulettes/:id', function (req, res) {
         var idToDelete = req.params.id;
-        roulette.findOne({id: idToDelete}, function (err, project) {
-            if (err) {
-                res.status(500);
-            }
-            else {
-                choices.findOne({_id: project.id}, function (err, choices) {
-                    if (err) {
-                        res.status(500);
-                    }
-                    else {
-                        roulette.remove({id: idToDelete}).exec();
-                        choices.remove({_id: project.id}).exec();
-                        res.status(200);
+        roulette.findOne({id: idToDelete}, function (err1, project) {
+            if (!err1) {
+                roulette.find({id: idToDelete}).remove(function (err2) {
+                    if (!err2) {
+                        choices.find({_id: project.id}).remove(function (err3) {
+                            if (!err3) {
+                                res.send(project);
+                            }
+                        });
                     }
                 });
             }

@@ -175,10 +175,13 @@ var app = angular.module('app')
         };
 
         $scope.deleteRoulette = function ($event, roulette) {
-            /*RouletteService.delete().then(function (res) {
-
+            var that = $(event.currentTarget);
+            RouletteService.delete(roulette.id).then(function (res) {
+                $(that.parents('#rouletteItem')).fadeOut(300, function() {
+                    $(this).remove();
+                });
             }, function () {
-
-            }); */
+                renderNotification(false, "Failed to delete. Please try again.");
+            });
         };
     }]);

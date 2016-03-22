@@ -21,7 +21,7 @@ var app = angular.module('app')
         };
 
         //Delete a roulette
-        this.delete = function(roulette) {
-            return $http.delete('roulettes/' + roulette, {timeout: 10000});
+        this.delete = function(rouletteId) {
+            return $http.delete('roulettes/' + rouletteId, {timeout: 10000});
         }
     }]);

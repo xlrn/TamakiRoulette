@@ -94,22 +94,29 @@
                 <div class="modal-body">
                     <div id="rouletteItem"
                          ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | orderBy:'title'"
-                         ng-click="editNameEnabled ? $event.stopPropagation() : loadSavedRouletteId(roulette.id)" class="list-group-item" data-dismiss="modal">
+                         ng-click="editNameEnabled||deleteEnabled ? $event.stopPropagation() : loadSavedRouletteId(roulette.id)" class="list-group-item" data-dismiss="modal">
                         <div ng-hide="editNameEnabled">
                             <div class="rouletteName">
                                 {{roulette.title}}
                             </div>
-                            <div class="rouletteButtons" ng-click="$event.stopPropagation()">
+                            <div class="rouletteButtons" ng-hide="deleteEnabled" ng-click="$event.stopPropagation()">
                                 <div ng-click="editNameEnabled=!editNameEnabled" class="editRouletteName">
                                     Rename
                                 </div>
-                                <div ng-click="deleteRoulette($event, roulette)" class="deleteRoulette">
+                                <div ng-click="deleteEnabled=!deleteEnabled" class="deleteRoulette">
                                     Delete
+                                </div>
+                            </div>
+                            <div class="deleteEnabled" ng-show="deleteEnabled" ng-click="$event.stopPropagation()">
+                                <div>Are you sure? </div>
+                                <div>
+                                    <button ng-click="deleteEnabled=!deleteEnabled; deleteRoulette($event, roulette)" class="btn btn-danger">Delete</button>
+                                    <button ng-click="deleteEnabled=!deleteEnabled" class="btn btn-default">Cancel</button>
                                 </div>
                             </div>
                         </div>
                         <div class="editNameEnabled" ng-show="editNameEnabled" ng-click="$event.stopPropagation()" ng-init="originalName=roulette.title">
-                            <input ng-model="roulette.title">
+                            <input ng-model="roulette.title" class="form-control">
                             <div class="editNameButtons">
                                 <div ng-click="editNameEnabled=!editNameEnabled; originalName=roulette.title; editRouletteName(roulette)" class="glyphicon glyphicon-ok"></div>
                                 <div ng-click="editNameEnabled=!editNameEnabled; roulette.title=originalName" class="glyphicon glyphicon-remove"></div>

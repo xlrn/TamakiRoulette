@@ -2,11 +2,16 @@
     background: #7986cb;
     color: white;
     cursor: pointer;
+    padding: 0;
 }
 
 #savedRoulettesModal .modal-body #rouletteItem:hover {
     background: #37474f;
     color: white;
+}
+
+#savedRoulettesModal .modal-body #rouletteItem > div {
+    padding: 8px 20px;
 }
 
 #savedRoulettesModal .modal-body .rouletteName {
@@ -44,14 +49,29 @@
     display: inline-block;
 }
 
+#savedRoulettesModal .modal-body .deleteEnabled {
+    float: right;
+    margin-top: -4px;
+}
+
+#savedRoulettesModal .modal-body .deleteEnabled div {
+    display: inline-block;
+}
+
+#savedRoulettesModal .modal-body .deleteEnabled button {
+    padding: 3px 10px;
+    margin-left: 7px;
+}
+
 #savedRoulettesModal .modal-body .editNameEnabled div {
     display: inline-block;
 }
 
-#savedRoulettesModal .modal-body .editNameEnabled input {
+#savedRoulettesModal .modal-body .editNameEnabled input.form-control {
     color: black;
     display: inline-block;
-    width: 85%
+    width: 85%;
+    height: 25px;
 }
 
 #savedRoulettesModal .modal-body .editNameEnabled .editNameButtons {

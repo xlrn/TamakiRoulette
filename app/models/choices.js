@@ -1,4 +1,6 @@
 
+//this schema should probably be combined with roulette.js
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Choices = new Schema({
@@ -6,3 +8,4 @@ var Choices = new Schema({
     title: String
 });
 module.exports = mongoose.model('Choices', Choices);
+
