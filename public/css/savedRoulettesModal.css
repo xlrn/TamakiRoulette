@@ -20,9 +20,8 @@
 
 #savedRoulettesModal .modal-body .rouletteButtons div {
     display: inline-block;
-    width: 70px;
+    width: 82px;
     text-align: center;
-    padding: 0 15px;
 }
 
 #savedRoulettesModal .modal-body .rouletteButtons .editRouletteName {
@@ -43,4 +42,33 @@
 
 #savedRoulettesModal .modal-body #rouletteItem:hover .rouletteButtons {
     display: inline-block;
+}
+
+#savedRoulettesModal .modal-body .editNameEnabled div {
+    display: inline-block;
+}
+
+#savedRoulettesModal .modal-body .editNameEnabled input {
+    color: black;
+    display: inline-block;
+    width: 85%
+}
+
+#savedRoulettesModal .modal-body .editNameEnabled .editNameButtons {
+    float: right;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#savedRoulettesModal .modal-body .editNameEnabled .editNameButtons div.glyphicon {
+    padding: 0 7px;
+    vertical-align: middle;
+}
+
+#savedRoulettesModal .modal-body .editNameEnabled .editNameButtons .glyphicon-ok:hover {
+    color: greenyellow;
+}
+
+#savedRoulettesModal .modal-body .editNameEnabled .editNameButtons .glyphicon-remove:hover {
+    color: red;
 }

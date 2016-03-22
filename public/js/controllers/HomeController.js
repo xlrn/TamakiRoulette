@@ -166,24 +166,12 @@ var app = angular.module('app')
             });
         };
 
-        $scope.editRouletteName = function ($event, roulette) {
-            //var rouletteName = current roulette name
-            //change parent div to input box containing rouletteName, beside it is check mark
-            //$scope.$apply()
-
-            //check for enter key or checkmark press which calls updateRouletteName( whatever was in input, roulette.id or roulette._id)
-            var updateRouletteName = function(name, rouletteId) {
-                //call delete http.put in RouletteService
-                //set parent div back to what it was before but with new roulette name as text
-            }
-
-            /*RouletteService.put().then(function (res) {
-
+        $scope.editRouletteName = function (roulette) {
+            RouletteService.updateName(roulette).then(function (res) {
+                //Successfully updated name of roulette
             }, function () {
-
+                renderNotification(false, "Failed to rename. Please try again.");
             });
-            */
-
         };
 
         $scope.deleteRoulette = function ($event, roulette) {

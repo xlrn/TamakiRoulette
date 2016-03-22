@@ -14,6 +14,7 @@
                 <div class="row shift-right">
                     <input type="text" class="form-control" name="choice4" id="choice4" placeholder="Choice 5"/>
                     <input type="text" class="form-control" name="choice5" id="choice5" placeholder="Choice 6"/>
+
                     <div id="addMoreChoices" class="glyphicon glyphicon-plus"></div>
                 </div>
             </div>
@@ -21,7 +22,8 @@
             <button type="button" class="btn btn-default" id="reset" ng-click="resetChoices()">
                 <div class="glyphicon glyphicon-repeat"></div>
             </button>
-            <input class="btn" id="randomize" type="button" ng-click="randomize()" data-toggle="modal" data-target="#randomResultModal" value="Randomize!">
+            <input class="btn" id="randomize" type="button" ng-click="randomize()" data-toggle="modal"
+                   data-target="#randomResultModal" value="Randomize!">
             <button type="button" class="btn btn-default" id="save" ng-click="saveRoulette()">
                 <div class="glyphicon glyphicon-floppy-disk"></div>
             </button>
@@ -35,7 +37,8 @@
                 <button ng-click="generateRandom('headsTails')" class="list-group-item">Heads or Tails</button>
                 <button ng-click="generateRandom('foodCuisines')" class="list-group-item">Food Cuisines</button>
                 <button ng-click="generateRandom('dice')" class="list-group-item">Dice</button>
-                <button ng-click="generateRandom('rockPaperScissors')" class="list-group-item">Rock, Paper, Scissors</button>
+                <button ng-click="generateRandom('rockPaperScissors')" class="list-group-item">Rock, Paper, Scissors
+                </button>
             </ul>
         </div>
         <div id="saved-bar">
@@ -44,8 +47,13 @@
                 <button class="list-group-item disabled" ng-bind="noSavedRoulettes">Loading ...</button>
             </ul>
             <ul class="list-group" ng-if="savedRoulettes">
-                <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | limitTo: 5" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" ng-if="roulette.title">{{roulette.title}}</button>
-                <button ng-if="savedRoulettes.length > 4" id="view-more-roulettes" class="list-group-item" ng-click="viewMoreSavedRoulettes()">View All</button>
+                <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | limitTo: 5"
+                        ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" ng-if="roulette.title">
+                    {{roulette.title}}
+                </button>
+                <button ng-if="savedRoulettes.length > 4" id="view-more-roulettes" class="list-group-item"
+                        ng-click="viewMoreSavedRoulettes()">View All
+                </button>
             </ul>
         </div>
     </div>
@@ -61,11 +69,14 @@
                 </div>
                 <div class="modal-body">
                     <fieldset class="form-group">
-                        <input type="text" class="form-control" name="Name" id="Name" placeholder="Name" ng-model="saveName">
+                        <input type="text" class="form-control" name="Name" id="Name" placeholder="Name"
+                               ng-model="saveName">
                     </fieldset>
                 </div>
                 <div class="modal-footer">
-                    <button ng-click="saveModalSubmit()" data-dismiss="modal" type="button" class="btn btn-primary" ng-disabled="!saveName">Save</button>
+                    <button ng-click="saveModalSubmit()" data-dismiss="modal" type="button" class="btn btn-primary"
+                            ng-disabled="!saveName">Save
+                    </button>
                 </div>
             </div>
         </div>
@@ -76,21 +87,32 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Load saved roulettes</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Saved Roulettes</h4>
                 </div>
                 <div class="modal-body">
-                    <div id="rouletteItem" ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | orderBy:'title'" ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" data-dismiss="modal">
-                        <div class="rouletteName">
-                            {{roulette.title}}
-                        </div>
-                        <div class="rouletteButtons" ng-click="$event.stopPropagation()">
-                            <div ng-click="editRouletteName($event, roulette)" class="editRouletteName">
-                                Edit
+                    <div id="rouletteItem"
+                         ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | orderBy:'title'"
+                         ng-click="editNameEnabled ? $event.stopPropagation() : loadSavedRouletteId(roulette.id)" class="list-group-item" data-dismiss="modal">
+                        <div ng-hide="editNameEnabled">
+                            <div class="rouletteName">
+                                {{roulette.title}}
                             </div>
-                            <div ng-click="deleteRoulette($event, roulette)" class="deleteRoulette">
-                                Delete
+                            <div class="rouletteButtons" ng-click="$event.stopPropagation()">
+                                <div ng-click="editNameEnabled=!editNameEnabled" class="editRouletteName">
+                                    Rename
+                                </div>
+                                <div ng-click="deleteRoulette($event, roulette)" class="deleteRoulette">
+                                    Delete
+                                </div>
+                            </div>
+                        </div>
+                        <div class="editNameEnabled" ng-show="editNameEnabled" ng-click="$event.stopPropagation()" ng-init="originalName=roulette.title">
+                            <input ng-model="roulette.title">
+                            <div class="editNameButtons">
+                                <div ng-click="editNameEnabled=!editNameEnabled; originalName=roulette.title; editRouletteName(roulette)" class="glyphicon glyphicon-ok"></div>
+                                <div ng-click="editNameEnabled=!editNameEnabled; roulette.title=originalName" class="glyphicon glyphicon-remove"></div>
                             </div>
                         </div>
                     </div>
@@ -111,7 +133,7 @@
                 <div id="result" ng-bind="randomResult"></div>
             </div>
             <div class="modal-footer">
-            	<button type="button" class="btn" ng-click="randomize()">Randomize Again!</button>
+                <button type="button" class="btn" ng-click="randomize()">Randomize Again!</button>
             </div>
 
         </div>

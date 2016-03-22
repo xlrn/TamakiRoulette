@@ -35,29 +35,19 @@ module.exports = function (app, passport) {
 
     // Save roulette
     app.post('/roulettes', function (req, res, next) {
-        // Set our internal DB variable
-        var db = req.db;
-
-        // Set our collection
-        var collection = db.get('choices');
-
         // New choices
         var newChoice = new choices({
             "choices": req.body.choices,
             "title": req.body.cName
         });
-        newChoice.save(function (err, req) {
+        newChoice.save(function (err) {
             if (err) {
                 res.send("There was a problem adding the information to the database.");
             }
             else {
-
                 // submit roulette
                 var Title = newChoice.title;
                 var ObjectId = newChoice._id.toString();
-
-
-                collection = db.get('roulettes');
 
                 var newRoulette = new roulette({
                     "username": "placeholder",
@@ -65,7 +55,7 @@ module.exports = function (app, passport) {
                     "id": ObjectId
                 });
 
-                newRoulette.save(function (err, req) {
+                newRoulette.save(function (err) {
                     if (err) {
                         res.send("You have a problem");
                     }
@@ -78,15 +68,39 @@ module.exports = function (app, passport) {
     });
 
     //Update roulette
-    app.put('roulettes', function (req, res, next) {
-
+    app.put('/roulettes', function (req, res) {
+        var id = req.body.id;
+        var newName = req.body.title;
+        choices.findByIdAndUpdate(id, { $set: { title: newName}}, function (err, roulette) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(roulette);
+            }
+        });
     });
 
     //Delete a roulette
-    app.delete('roulettes/:id', function(req, res) {
-       var idToDelete = req.params.id;
+    app.delete('/roulettes/:id', function (req, res) {
+        var idToDelete = req.params.id;
+        roulette.findOne({id: idToDelete}, function (err, project) {
+            if (err) {
+                res.status(500);
+            }
+            else {
+                choices.findOne({_id: project.id}, function (err, choices) {
+                    if (err) {
+                        res.status(500);
+                    }
+                    else {
+                        roulette.remove({id: idToDelete}).exec();
+                        choices.remove({_id: project.id}).exec();
+                        res.status(200);
+                    }
+                });
+            }
+        });
     });
-
 
 
     // Login =================================
