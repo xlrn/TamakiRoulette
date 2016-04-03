@@ -37,6 +37,9 @@
     <script src="js/controllers/HomeController.js"></script>
     <script src="js/controllers/LayoutController.js"></script>
 
+    <!-- directives -->
+    <script src="js/directives/formValidationError.js"></script>
+
     <!-- services -->
     <script src="js/services/RouletteService.js"></script>
 
@@ -97,26 +100,31 @@ role="dialog" aria-labelledby="signupModal" aria-hidden="true">
             <h4 class="modal-title">Registration</h4>
         </div>
         <div class="modal-body">
-            <form class="form-group" action="/signup" method="post">
+            <form class="form-group" action="/signup" method="post" name="signupform">
                 <fieldset class="form-group">
                     <label for="Email">Email address</label>
-                    <input type="email" class="form-control" id="Email" placeholder="Enter email" name="email">
+                    <input type="email" class="form-control" id="Email" placeholder="Enter email" name="email"
+                           ng-model="signup.email" required />
                     <small class="text-muted">We'll never share your email with anyone else!</small>
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="Username">Username</label>
                     <input type="username" class="form-control" id="Username" placeholder="Enter username"
-                    name="username">
+                        name="username" ng-model="signup.username"
+                           form-validation-error="signup.username.trim().length > 0 ? '' : 'Username cannot be empty.'"
+                           required />
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="Password">Password</label>
                     <input type="password" class="form-control" id="Password" placeholder="Enter password"
-                    name="password">
+                        name="password" ng-model="signup.password"
+                           form-validation-error="signup.password.length < 4 ? 'Password must be at least 5 characters.' : ''" required />
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="Confirm">Confirm Password</label>
                     <input type="password" class="form-control" id="Confirm" placeholder="Confirm password"
-                    name="confirm">
+                        name="confirm" ng-model="signup.confirm"
+                           form-validation-error="signup.confirm != signup.password ? 'Passwords don\'t match.' : ''" required />
                 </fieldset>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Create Account</button>
@@ -138,16 +146,17 @@ role="dialog" aria-labelledby="loginModal" aria-hidden="true">
                 <h4 class="modal-title" id="myModalLabel">Login</h4>
             </div>
             <div class="modal-body">
-                <form class="form-group" action="/login" method="post">
+                <form class="form-group" action="/login" method="post" name="loginform">
                     <fieldset class="form-group">
                         <label for="Username">Username</label>
                         <input type="username" class="form-control" id="Username" placeholder="Enter username"
-                        name="username">
+                        name="username" ng-model="login.username"
+                               form-validation-error="login.username.trim().length > 0 ? '' : 'Username cannot be empty.'" required>
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="Password">Password</label>
                         <input type="password" class="form-control" id="Password" placeholder="Enter password"
-                        name="password">
+                        name="password" ng-model="login.password" required>
                     </fieldset>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Login</button>
