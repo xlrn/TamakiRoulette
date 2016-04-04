@@ -124,8 +124,8 @@
     font-color:#37474f;
 }
 
-#home #sidebar button:hover {
-    background-color:#7986cb;
+#home #sidebar button:hover:enabled {
+    background-color: #7986cb;
     color: white;
 }
 

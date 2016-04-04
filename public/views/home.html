@@ -43,15 +43,15 @@
         </div>
         <div id="saved-bar" ng-show="$root.session.user" ng-init="getSavedRoulettes()">
             <h2>Saved Roulettes</h2>
-            <ul class="list-group" ng-if="!savedRoulettes">
-                <button class="list-group-item disabled" ng-bind="noSavedRoulettes">Loading ...</button>
+            <ul class="list-group" ng-if="!savedRoulettes || savedRoulettes.length == 0">
+                <button class="list-group-item" disabled="disabled" ng-bind="noSavedRoulettes">Loading ...</button>
             </ul>
             <ul class="list-group" ng-if="savedRoulettes">
                 <button ng-repeat="roulette in savedRoulettes | filter:{title:'!!'} | limitTo: 5"
                         ng-click="loadSavedRouletteId(roulette.id)" class="list-group-item" ng-if="roulette.title">
                     {{roulette.title}}
                 </button>
-                <button id="view-more-roulettes" class="list-group-item"
+                <button id="view-more-roulettes" class="list-group-item" ng-show="savedRoulettes.length"
                         ng-click="viewMoreSavedRoulettes()">View All
                 </button>
             </ul>

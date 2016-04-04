@@ -178,6 +178,7 @@ var app = angular.module('app')
             RouletteService.delete(roulette.id).then(function (res) {
                 $(that.parents('#rouletteItem')).fadeOut(300, function() {
                     $(this).remove();
+                    $scope.getSavedRoulettes();
                 });
             }, function () {
                 renderNotification(false, "Failed to delete. Please try again.");
