@@ -103,21 +103,58 @@ module.exports = function (app, passport) {
 
     // Login =================================
     // process the login form
-    app.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/', // redirect to the secure profile section
-        failureRedirect: '/', // redirect back to the signup page if there is an error
-        failureFlash: true // allow flash messages
-    }));
+    app.post('/login', function(req, res, next) {
+        passport.authenticate('local-login', function(err, user, info) {
+            if (err) {
+                return next(err); //will generate a 500 error
+            }
+            // Generate a JSON response
+            if (!user) {
+                res.send({ aUser: user, aInfo: info, success : false, message : 'Incorrect username and password' });
+            }
+            else {
+                req.logIn(user, function(err) {
+                    if (err) {
+                        return next(err);
+                    }
+                    return res.send({ aUser: user, aInfo: info, success: true, message: 'Login successful'});
+                });
+            }
+        })(req, res, next);
+    });
 
     // Sign Up =================================
 
     // process the signup form
-    app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/', // redirect to the secure profile section
-        failureRedirect: '/', // redirect back to the signup page if there is an error
-        failureFlash: true // allow flash messages
-    }));
+    app.post('/signup', function(req, res, next) {
+        passport.authenticate('local-signup', function(err, user, info) {
+            if (err) {
+                return next(err); //will generate a 500 error
+            }
+            // Generate a JSON response
+            if (!user) {
+                res.send({ success : false, aInfo: info, message : 'Username already taken' });
+            }
+            else {
+                res.send({ user: user, success: true, message: 'Signup successful'});
+            }
+        })(req, res, next);
+    });
 
+    app.get('/logout', function (req, res) {
+        req.logout();
+        req.session.destroy(function (err) {
+            res.send();
+        });
+    });
+
+    app.get('/account', function (req, res) {
+        if (req.user) {
+            res.send({user : req.user});
+        } else {
+            res.send({user : null});
+        }
+    });
 
     // route to handle all angular requests
     app.get('*', function (req, res) {

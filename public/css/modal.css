@@ -1,3 +1,9 @@
 .modal .modal-title {
     font-weight: bold;
 }
+
+.modalStatus {
+    color: red;
+    text-align: left;
+    margin-bottom: 10px;
+}

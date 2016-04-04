@@ -41,6 +41,7 @@
     <script src="js/directives/formValidationError.js"></script>
 
     <!-- services -->
+    <script src="js/services/AccountService.js"></script>
     <script src="js/services/RouletteService.js"></script>
 
 
@@ -64,15 +65,15 @@
 <body ng-app="app" ng-controller="App">
     <div class="wrapper">
         <div ng-controller="LayoutController" id="header">Roulette
-            <button ng-click="openSignupModal()" id="signupButton" type="button" class="btn">
+            <button ng-if="!loggedIn" ng-click="openSignupModal()" id="signupButton" type="button" class="btn">
                 Signup
             </button>
-            <button ng-click="openLoginModal()" id="loginButton" type="button" class="btn">
+            <button ng-if="!loggedIn" ng-click="openLoginModal()" id="loginButton" type="button" class="btn">
                 Login
             </button>
-        <!-- <button ng-click="logout()" id="logoutButton" type="button" class="btn">
-             Logout
-         </button> -->
+            <button ng-if="loggedIn" ng-click="logout()" id="logoutButton" type="button" class="btn">
+                Logout
+            </button>
      </div>
 
      <div class="container-fluid">
@@ -100,34 +101,35 @@ role="dialog" aria-labelledby="signupModal" aria-hidden="true">
             <h4 class="modal-title">Registration</h4>
         </div>
         <div class="modal-body">
-            <form class="form-group" action="/signup" method="post" name="signupform">
-                <fieldset class="form-group">
+            <form class="form-group" name="signupform" ng-submit="signup()">
+               <!-- <fieldset class="form-group">
                     <label for="Email">Email address</label>
                     <input type="email" class="form-control" id="Email" placeholder="Enter email" name="email"
-                           ng-model="signup.email" required />
+                           ng-model="signupData.email" required />
                     <small class="text-muted">We'll never share your email with anyone else!</small>
-                </fieldset>
+                </fieldset> -->
                 <fieldset class="form-group">
                     <label for="Username">Username</label>
                     <input type="username" class="form-control" id="Username" placeholder="Enter username"
-                        name="username" ng-model="signup.username"
-                           form-validation-error="signup.username.trim().length > 0 ? '' : 'Username cannot be empty.'"
+                        name="username" ng-model="signupData.username"
+                           form-validation-error="signupData.username.trim().length > 0 ? '' : 'Username cannot be empty.'"
                            required />
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="Password">Password</label>
                     <input type="password" class="form-control" id="Password" placeholder="Enter password"
-                        name="password" ng-model="signup.password"
-                           form-validation-error="signup.password.length < 4 ? 'Password must be at least 5 characters.' : ''" required />
+                        name="password" ng-model="signupData.password"
+                           form-validation-error="signupData.password.length < 4 ? 'Password must be at least 4 characters.' : ''" required />
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="Confirm">Confirm Password</label>
                     <input type="password" class="form-control" id="Confirm" placeholder="Confirm password"
-                        name="confirm" ng-model="signup.confirm"
-                           form-validation-error="signup.confirm != signup.password ? 'Passwords don\'t match.' : ''" required />
+                        name="confirm" ng-model="signupData.confirm"
+                           form-validation-error="signupData.confirm != signupData.password ? 'Passwords don\'t match.' : ''" required />
                 </fieldset>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Create Account</button>
+                    <div ng-bind="signupFormStatus" class="modalStatus"></div>
+                    <button class="btn btn-primary" ng-click="signupFormStatus=''">Create Account</button>
                 </div>
             </form>
         </div>
@@ -146,20 +148,21 @@ role="dialog" aria-labelledby="loginModal" aria-hidden="true">
                 <h4 class="modal-title" id="myModalLabel">Login</h4>
             </div>
             <div class="modal-body">
-                <form class="form-group" action="/login" method="post" name="loginform">
+                <form class="form-group" name="loginform" ng-submit="login()">
                     <fieldset class="form-group">
                         <label for="Username">Username</label>
                         <input type="username" class="form-control" id="Username" placeholder="Enter username"
-                        name="username" ng-model="login.username"
-                               form-validation-error="login.username.trim().length > 0 ? '' : 'Username cannot be empty.'" required>
+                        name="username" ng-model="loginData.username"
+                               form-validation-error="loginData.username.trim().length > 0 ? '' : 'Username cannot be empty.'" required>
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="Password">Password</label>
                         <input type="password" class="form-control" id="Password" placeholder="Enter password"
-                        name="password" ng-model="login.password" required>
+                        name="password" ng-model="loginData.password" required>
                     </fieldset>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div ng-bind="loginFormStatus" class="modalStatus"></div>
+                        <button class="btn btn-primary" ng-click="loginFormStatus=''">Login</button>
                     </div>
                 </form>
             </div>

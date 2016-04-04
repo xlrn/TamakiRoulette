@@ -10,7 +10,20 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             redirectTo: '/'
         });
 }])
-    .controller('App', function($scope) {
+    .controller('App',['$scope', 'AccountService', '$rootScope', function($scope, AccountService, $rootScope) {
+        angular.element(document).ready(function () {
+            $rootScope.session = {};
+            AccountService.getAccount().then(function (res) {
+                var user = res.data.user;
+                if (user) {
+                    $rootScope.session.user = user;
+                    $scope.loggedIn = true;
+                }
+                else {
+                    $scope.loggedIn = false;
+                }
+            });
+        });
 
         $scope.year = new Date().getFullYear();
 
@@ -39,4 +52,4 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             }
             return array;
         }
-});
+}]);
