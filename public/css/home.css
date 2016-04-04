@@ -70,6 +70,7 @@
     background-color: #7986cb;
 }
 
+/** Save Button **/
 #home #centre-content form#choices button#save {
     /** button shape**/
     height: 70px;
@@ -79,20 +80,20 @@
     margin: 20px 20px;
     background: #37474f;
     transition: all 0.3s ease 0s;
-    color:white;
+    color: white;
 }
-
-/** Save Button **/
 
 #home #centre-content form#choices button#save .glyphicon {
     font-size: 30px;
 }
 
-#home #centre-content form#choices button#save:hover {
+#home #centre-content form#choices button#save:hover:enabled {
     background: #7986cb;
-    color:white;
+    color: white;
 }
 
+
+/** Reset Button **/
 #home #centre-content button#reset {
     height: 70px;
     width: 90px;
@@ -103,8 +104,6 @@
     transition: all 0.3s ease 0s;
     color:white;
 }
-
-/** Reset Button **/
 
 #home #centre-content button#reset:hover {
     background-position: 0 -80px;

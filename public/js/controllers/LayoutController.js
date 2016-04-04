@@ -6,10 +6,10 @@ var app = angular.module('app')
         };
 
         $scope.openLoginModal = function(alertMsg) {
-            $('#loginModal').modal('show');
             if (alertMsg) {
                 alert(alertMsg);
             }
+            $('#loginModal').modal('show');
         };
 
         $scope.closeSignupModal = function() {
@@ -21,10 +21,12 @@ var app = angular.module('app')
         };
 
         $('#signupModal').on('hidden.bs.modal', function() {
+            $scope.signupFormStatus = "";
             $(this).find('form')[0].reset();
         });
 
         $('#loginModal').on('hidden.bs.modal', function() {
+            $scope.loginFormStatus = "";
             $(this).find('form')[0].reset();
         });
 

@@ -20,7 +20,7 @@ module.exports = function (app, passport) {
 
     //Get list of all roulettes
     app.get('/roulettes', function (req, res) {
-        roulette.find({username: 'placeholder'}, function (err, projects) {
+        roulette.find({username: req.user}, function (err, projects) {
             if (err) {
                 next(err);
             }
@@ -50,7 +50,7 @@ module.exports = function (app, passport) {
                 var ObjectId = newChoice._id.toString();
 
                 var newRoulette = new roulette({
-                    "username": "placeholder",
+                    "username": req.user,
                     "title": Title,
                     "id": ObjectId
                 });

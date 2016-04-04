@@ -17,10 +17,6 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
                 var user = res.data.user;
                 if (user) {
                     $rootScope.session.user = user;
-                    $scope.loggedIn = true;
-                }
-                else {
-                    $scope.loggedIn = false;
                 }
             });
         });

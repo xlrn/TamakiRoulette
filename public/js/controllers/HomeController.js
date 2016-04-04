@@ -1,16 +1,15 @@
 var app = angular.module('app')
-    .controller('HomeController', ['$scope', '$compile', 'RouletteService', function ($scope, $compile, RouletteService) {
-        getSavedRoulettes();
+    .controller('HomeController', ['$scope', '$rootScope', '$compile', 'RouletteService', function ($scope, $rootScope, $compile, RouletteService) {
 
-        function getSavedRoulettes() {
-            RouletteService.getAll().then(function (res) {
-                $scope.savedRoulettes = $scope.shuffleArray(res.data);
-                if ($scope.savedRoulettes.length === 0) {
-                    $scope.noSavedRoulettes = "No saved roulettes";
-                }
-            }, function () {
-                $scope.noSavedRoulettes = "Error getting saved roulettes";
-            });
+        $scope.getSavedRoulettes = function() {
+                RouletteService.getAll().then(function (res) {
+                    $scope.savedRoulettes = $scope.shuffleArray(res.data);
+                    if ($scope.savedRoulettes.length === 0) {
+                        $scope.noSavedRoulettes = "No saved roulettes";
+                    }
+                }, function () {
+                    $scope.noSavedRoulettes = "Error getting saved roulettes";
+                });
         }
 
         var numChoices = 6;
@@ -28,7 +27,7 @@ var app = angular.module('app')
             var json = {'cName': $scope.saveName, 'choices': choices}
             RouletteService.post(json).then(function () {
                     renderNotification(true, "Successfully saved choices");
-                    getSavedRoulettes();
+                    $scope.getSavedRoulettes();
                 },
                 function () {
                     renderNotification(false, "Failed to save choices");

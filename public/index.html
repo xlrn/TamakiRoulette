@@ -65,13 +65,13 @@
 <body ng-app="app" ng-controller="App">
     <div class="wrapper">
         <div ng-controller="LayoutController" id="header">Roulette
-            <button ng-if="!loggedIn" ng-click="openSignupModal()" id="signupButton" type="button" class="btn">
+            <button ng-if="!$root.session.user" ng-click="openSignupModal()" id="signupButton" type="button" class="btn">
                 Signup
             </button>
-            <button ng-if="!loggedIn" ng-click="openLoginModal()" id="loginButton" type="button" class="btn">
+            <button ng-if="!$root.session.user" ng-click="openLoginModal()" id="loginButton" type="button" class="btn">
                 Login
             </button>
-            <button ng-if="loggedIn" ng-click="logout()" id="logoutButton" type="button" class="btn">
+            <button ng-if="$root.session.user" ng-click="logout()" id="logoutButton" type="button" class="btn">
                 Logout
             </button>
      </div>
