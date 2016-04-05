@@ -35,6 +35,7 @@
 
 #home #centre-content #addMoreChoices:hover {
     color: #7986cb;
+    cursor: pointer;
 }
 
 #home #centre-content form#choices input[type="text"] {
@@ -73,6 +74,7 @@
 /** Save Button **/
 #home #centre-content form#choices button#save {
     /** button shape**/
+    position: relative;
     height: 70px;
     width: 90px;
     font-family: 'Raleway', sans-serif;
@@ -92,6 +94,18 @@
     color: white;
 }
 
+#home #centre-content form#choices button#save:hover:disabled:after {
+    position: absolute;
+    width: auto;
+    content: attr(title);
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 15px;
+    left: -100%;
+    bottom: -100%;
+}
 
 /** Reset Button **/
 #home #centre-content button#reset {
@@ -102,7 +116,7 @@
     margin: 20px 20px;
     background: #37474f;
     transition: all 0.3s ease 0s;
-    color:white;
+    color: white;
 }
 
 #home #centre-content button#reset:hover {

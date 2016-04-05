@@ -24,7 +24,8 @@
             </button>
             <input class="btn" id="randomize" type="button" ng-click="randomize()" data-toggle="modal"
                    data-target="#randomResultModal" value="Randomize!">
-            <button type="button" class="btn btn-default" id="save" ng-click="saveRoulette()" ng-disabled="!$root.session.user">
+            <button type="button" class="btn btn-default" id="save" ng-click="saveRoulette()"
+                    ng-disabled="!$root.session.user" title="{{$root.session.user?'' : 'Please login to save roulettes'}}">
                 <div class="glyphicon glyphicon-floppy-disk"></div>
             </button>
         </form>

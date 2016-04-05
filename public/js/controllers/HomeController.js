@@ -19,7 +19,7 @@ var app = angular.module('app')
         };
 
         $('#saveRouletteModal').on('hidden.bs.modal', function () {
-            $(this).find('form')[0].reset();
+            $(this).find('input').val("");
         });
 
         $scope.saveModalSubmit = function () {
@@ -178,10 +178,21 @@ var app = angular.module('app')
             RouletteService.delete(roulette.id).then(function (res) {
                 $(that.parents('#rouletteItem')).fadeOut(300, function() {
                     $(this).remove();
-                    $scope.getSavedRoulettes();
+                    $scope.rouletteDeleted = true;
                 });
             }, function () {
                 renderNotification(false, "Failed to delete. Please try again.");
             });
         };
+
+        $('#savedRoulettesModal').on('shown.bs.modal', function() {
+            $scope.rouletteDeleted = false;
+        });
+
+        $('#savedRoulettesModal').on('hidden.bs.modal', function() {
+            if ($scope.rouletteDeleted) {
+                $scope.rouletteDeleted = false;
+                $scope.getSavedRoulettes();
+            }
+        });
     }]);
